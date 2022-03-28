@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "464172928189",
+    "project_id": "les-suricates",
+    "storage_bucket": "les-suricates.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464172928189:android:98e5bb96f708f6a9e83bd4",
+        "android_client_info": {
+          "package_name": "com.example.les_suricates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464172928189-49in63bc9hejgm1pphh7s7fa21s9j27l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFgw_V7aK-Q5y8idQOq0thOfLErkYi3qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464172928189-49in63bc9hejgm1pphh7s7fa21s9j27l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "464172928189-4c3rq63c2dup999dkmvckdestq69ui5s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lesSuricates"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

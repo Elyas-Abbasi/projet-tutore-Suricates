@@ -1,0 +1,5 @@
+enum AdType
+{
+  search,
+  exchange
+}

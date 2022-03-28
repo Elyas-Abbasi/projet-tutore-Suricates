@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">464172928189-49in63bc9hejgm1pphh7s7fa21s9j27l.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">464172928189</string>
+    <string name="google_api_key" translatable="false">AIzaSyAFgw_V7aK-Q5y8idQOq0thOfLErkYi3qg</string>
+    <string name="google_app_id" translatable="false">1:464172928189:android:98e5bb96f708f6a9e83bd4</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAFgw_V7aK-Q5y8idQOq0thOfLErkYi3qg</string>
+    <string name="google_storage_bucket" translatable="false">les-suricates.appspot.com</string>
+    <string name="project_id" translatable="false">les-suricates</string>
+</resources>
