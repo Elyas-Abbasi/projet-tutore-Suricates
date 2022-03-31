@@ -1,21 +1,23 @@
 import '/services/authentification/auth_service.dart';
 import '../widgets/transparent_button.dart';
 import '../widgets/loading_widget.dart';
-import '/model/current_user.dart';
 import '../widgets/filled_button.dart';
 import 'package:flutter/material.dart';
 import '../widgets/text_field.dart';
 import '../navigations/appbar.dart';
 import '../widgets/info_bar.dart';
+import '/model/current_user.dart';
 import 'edit_profile_page.dart';
 import '/strings.dart';
 import '/colors.dart';
 
+// ignore: must_be_immutable
 class ConnectionPage extends StatefulWidget {
   bool hasAccount;
-  bool connectionPage;
-  Widget? route;
-  bool? passByMainPage;
+  final bool connectionPage;
+  final Widget? route;
+  final bool? passByMainPage;
+
   ConnectionPage(
       {Key? key,
       required this.hasAccount,

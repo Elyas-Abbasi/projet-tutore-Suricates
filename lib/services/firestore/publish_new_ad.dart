@@ -16,7 +16,6 @@ class PublishNewAd {
     String type;
     ad.type == AdType.search ? type = "search" : type = "exchange";
     List<dynamic> result = [];
-    String url;
 
     ad.userID = globals.currentUser!.uid;
     ad.userPseudo = globals.currentUser!.pseudo;
@@ -33,13 +32,11 @@ class PublishNewAd {
       "userPseudo": ad.userPseudo,
       "url": ""
     }).then((value) async {
-      print(value.id);
 
       result.add(value.id);
       result.add(await PostImage().postImage(value.id, 'ad_images', _image));
 
     }).catchError((error) {
-      print("Erreur, ad no uploaded : " + error);
       result.add(error);
     });
     return result;

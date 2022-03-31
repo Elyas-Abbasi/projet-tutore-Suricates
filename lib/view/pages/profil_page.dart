@@ -178,7 +178,7 @@ class _ProfilPage extends State<ProfilPage> {
                   },
                   title1: widget.user.uid == globals.currentUser?.uid
                       ? TextsSuricates.myDeals
-                      : TextsSuricates.HisDeals,
+                      : TextsSuricates.hisDeals,
                   title2: TextsSuricates.opinion,
                   position: _currentSelection,
                 ))

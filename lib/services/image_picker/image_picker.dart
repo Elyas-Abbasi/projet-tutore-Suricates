@@ -12,13 +12,9 @@ class PickImage {
       imageQuality: 30,
       maxWidth: 1500,
       maxHeight: 1500);
-    print(pickedFile);
     if (pickedFile != null) {
         _image = File(pickedFile.path);
-      } else {
-        print('No image selected.');
       }
-
       return _image;
   }
 }

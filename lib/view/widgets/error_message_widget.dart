@@ -5,6 +5,8 @@ import '/colors.dart';
 import '/main.dart';
 
 class ErrorMessageWidget extends StatelessWidget {
+  const ErrorMessageWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(

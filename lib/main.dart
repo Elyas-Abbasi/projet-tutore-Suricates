@@ -10,7 +10,6 @@ import 'model/current_user.dart';
 import 'colors.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  print('Background message : ${message.messageId}');
 }
 
 Future<void> main() async {

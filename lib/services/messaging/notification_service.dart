@@ -7,11 +7,9 @@ class NotificationService {
     FirebaseMessaging.instance.requestPermission();
 
     FirebaseMessaging.onMessage.listen((event) {
-      print("A new onMessage has been published !");
     });
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print("A new onMessageOpenedApp has been published !");
     });
   }
 

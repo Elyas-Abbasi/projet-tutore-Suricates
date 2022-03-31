@@ -24,7 +24,7 @@ class TextsSuricates {
   static const String setting = "Paramètres";
   static const String help = "A propos";
   static const String myDeals = "Mes annonces";
-  static const String HisDeals = "Ses annonces";
+  static const String hisDeals = "Ses annonces";
 
   // Interface de connexion
   static const String email = "Email";

@@ -49,17 +49,6 @@ class _OpinionItemWidgetState extends State<OpinionItemWidget> {
                               : Image.asset("images/unknown.jpg",
                                   height: 70, width: 70, fit: BoxFit.cover),
                         ),
-                        /* Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Container(
-                              color: Colors.grey,
-                              height: 70,
-                              width: 70,
-                            ),
-                          ),
-                        ),*/
                         SizedBox(
                           width: 200,
                           child: Column(

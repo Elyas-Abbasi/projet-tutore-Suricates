@@ -23,8 +23,6 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController messageController = TextEditingController();
   final ScrollController listScrollController = ScrollController();
 
-  int _nbElement = 20;
-  static const int PAGINATION_INCREMENT = 20;
   bool loading = false;
   bool isFirstMessage = false;
 

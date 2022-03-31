@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/colors.dart';
 
+// ignore: must_be_immutable
 class SwitchTabBar extends StatefulWidget {
   final Function(int) selectItem;
   int position;
