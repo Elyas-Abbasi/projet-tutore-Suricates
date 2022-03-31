@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:suricates_app/colors_suricates.dart';
+import 'package:flutter/material.dart';
 
 class FilledButton extends StatefulWidget {
   final String text;

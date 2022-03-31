@@ -1,10 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:suricates_app/model/message.dart';
 import 'package:suricates_app/services/messaging/chat_service.dart';
 import 'package:suricates_app/view/widgets/text_field.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../../colors_suricates.dart';
 
 class BottomMessageBar extends StatefulWidget {

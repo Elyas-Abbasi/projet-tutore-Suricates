@@ -1,22 +1,15 @@
-import 'dart:ffi';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:suricates_app/model/ad.dart';
-import 'package:suricates_app/model/ad_type.dart';
-import 'package:suricates_app/model/conversation.dart';
-import 'package:suricates_app/model/global_user.dart';
-import 'package:suricates_app/model/message.dart';
 import 'package:suricates_app/services/firebase_stockage/get_image.dart';
 import 'package:suricates_app/services/messaging/chat_service.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/pages/chat_page.dart';
-import 'package:suricates_app/view/widgets/bottom_message_bar.dart';
-import 'package:suricates_app/view/widgets/chat_message.dart';
 import 'package:suricates_app/view/widgets/conversation_item.dart';
 import 'package:suricates_app/view/widgets/loading_widget.dart';
+import 'package:suricates_app/view/pages/chat_page.dart';
+import 'package:suricates_app/model/conversation.dart';
 import 'package:suricates_app/globals.dart' as globals;
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:suricates_app/model/global_user.dart';
+import 'package:suricates_app/model/ad_type.dart';
+import 'package:suricates_app/model/ad.dart';
+import 'package:flutter/material.dart';
 
 class ConversationPage extends StatefulWidget {
   const ConversationPage({ Key? key }) : super(key: key);

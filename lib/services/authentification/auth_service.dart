@@ -1,25 +1,23 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:suricates_app/main.dart';
+import 'package:suricates_app/services/messaging/notification_service.dart';
 import 'package:suricates_app/model/current_user.dart';
 import 'package:suricates_app/globals.dart' as globals;
-import 'package:suricates_app/services/messaging/notification_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:suricates_app/main.dart';
+import 'package:flutter/material.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   CollectionReference usersInfo =
       FirebaseFirestore.instance.collection('usersInfo');
 
-  /*CurrentUser? userFromFirebaseUser(User? user) {
-    return user != null ? CurrentUser.id(user.uid) : null;
-  }*/
-
   void saveToken(CurrentUser? user) async {
-    if(user == null) return;
-    NotificationService.getToken().then((value)  async {
-      await usersInfo.doc(user.uid).update({'token': value});
-    });
+    if (user == null) return;
+    NotificationService.getToken().then(
+      (value) async {
+        await usersInfo.doc(user.uid).update({'token': value});
+      },
+    );
   }
 
   getUser() {
@@ -46,12 +44,17 @@ class AuthService {
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       User? user = result.user;
-      CurrentUser currentUser = CurrentUser(user!.uid, user.email!, "");
+      CurrentUser currentUser = CurrentUser(
+        user!.uid,
+        user.email!,
+        "",
+      );
       saveToken(currentUser);
       return currentUser;
-      
     } catch (e) {
       return e;
     }
@@ -60,12 +63,16 @@ class AuthService {
   Future registerWithEmailAndPassword(String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       User? user = result.user;
 
-      // TODO créer nouvel utilisateur sur firestore
-
-      return CurrentUser(user!.uid, user.email!, "");
+      return CurrentUser(
+        user!.uid,
+        user.email!,
+        "",
+      );
     } catch (e) {
       return e;
     }

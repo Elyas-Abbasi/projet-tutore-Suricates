@@ -1,7 +1,6 @@
-import 'dart:io';
-
-import 'package:flutter/material.dart';
 import 'package:suricates_app/colors_suricates.dart';
+import 'package:flutter/material.dart';
+import 'dart:io';
 
 class AppBarWidget extends PreferredSize {
   final String title;

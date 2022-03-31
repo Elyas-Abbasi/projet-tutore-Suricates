@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:suricates_app/colors_suricates.dart';
 
 class FilterButton extends StatefulWidget {
   final Function() onPressed;

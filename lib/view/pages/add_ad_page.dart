@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/model/ad.dart';
-import 'package:suricates_app/model/ad_type.dart';
-import 'package:suricates_app/services/firestore/publish_new_ad.dart';
 import 'package:suricates_app/services/image_picker/image_picker.dart';
-import 'package:suricates_app/strings.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/pages/ad_page.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
+import 'package:suricates_app/services/firestore/publish_new_ad.dart';
 import 'package:suricates_app/view/widgets/loading_widget.dart';
 import 'package:suricates_app/view/widgets/switch_tabbar.dart';
+import 'package:suricates_app/view/widgets/filled_button.dart';
+import 'package:suricates_app/view/navigations/appbar.dart';
 import 'package:suricates_app/view/widgets/text_field.dart';
+import 'package:suricates_app/view/pages/ad_page.dart';
+import 'package:suricates_app/colors_suricates.dart';
+import 'package:suricates_app/model/ad_type.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:suricates_app/model/ad.dart';
+import 'package:suricates_app/strings.dart';
+import 'package:flutter/material.dart';
 import 'dart:io';
 
 class AddAdPage extends StatefulWidget {
