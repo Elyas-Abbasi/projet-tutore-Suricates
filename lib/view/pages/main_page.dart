@@ -1,17 +1,16 @@
-import 'package:suricates_app/view/navigations/bottom_navigation_bar.dart';
-import 'package:suricates_app/view/navigations/burger_menu.dart';
-import 'package:suricates_app/view/pages/conversation_page.dart';
-import 'package:suricates_app/view/pages/connection_page.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/pages/add_ad_page.dart';
-import 'package:suricates_app/view/pages/profil_page.dart';
-import 'package:suricates_app/view/pages/deals_page.dart';
-import 'package:suricates_app/globals.dart' as globals;
-import 'package:suricates_app/model/current_user.dart';
+import '../navigations/bottom_navigation_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:suricates_app/strings.dart';
+import '../navigations/burger_menu.dart';
 import 'package:flutter/material.dart';
+import '../navigations/appbar.dart';
+import '/globals.dart' as globals;
+import '/model/current_user.dart';
+import 'conversation_page.dart';
 import 'connection_page.dart';
+import 'add_ad_page.dart';
+import 'profil_page.dart';
+import 'deals_page.dart';
+import '/strings.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 

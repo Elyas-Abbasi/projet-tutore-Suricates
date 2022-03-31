@@ -1,13 +1,13 @@
-import 'package:suricates_app/services/firebase_stockage/get_image.dart';
-import 'package:suricates_app/view/widgets/error_message_widget.dart';
-import 'package:suricates_app/view/widgets/loading_widget.dart';
-import 'package:suricates_app/view/widgets/list_item.dart';
-import 'package:suricates_app/view/widgets/info_bar.dart';
-import 'package:suricates_app/view/pages/ad_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/model/ad.dart';
-import 'package:suricates_app/strings.dart';
+import '/view/widgets/error_message_widget.dart';
+import '../firebase_stockage/get_image.dart';
+import '/view/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
+import '/view/widgets/list_item.dart';
+import '/view/widgets/info_bar.dart';
+import '/view/pages/ad_page.dart';
+import '/model/ad.dart';
+import '/strings.dart';
 
 // va chercher la liste des annonces sur firebase en précisant en paramètre si elles sont de type search ou exchange
 class GetListAd extends StatelessWidget {

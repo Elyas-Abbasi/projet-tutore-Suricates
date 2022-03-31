@@ -1,9 +1,9 @@
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:suricates_app/view/pages/main_page.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/strings.dart';
 import 'package:flutter/material.dart';
-import '../../globals.dart';
+import '../pages/main_page.dart';
+import '/strings.dart';
+import '/globals.dart';
+import '/colors.dart';
 
 class MyOnboarding extends StatefulWidget {
   const MyOnboarding({

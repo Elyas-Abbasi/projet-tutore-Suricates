@@ -1,9 +1,9 @@
-import 'package:suricates_app/view/widgets/profil_picture_message.dart';
-import 'package:suricates_app/globals.dart' as globals;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter/material.dart';
+import 'profil_picture_message.dart';
+import '/globals.dart' as globals;
 import 'package:intl/intl.dart';
+import '/colors.dart';
 
 class ChatMessage extends StatefulWidget {
   final String messageText;

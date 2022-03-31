@@ -1,15 +1,15 @@
-import 'package:suricates_app/services/authentification/auth_service.dart';
-import 'package:suricates_app/view/widgets/transparent_button.dart';
-import 'package:suricates_app/view/pages/edit_profile_page.dart';
-import 'package:suricates_app/view/widgets/loading_widget.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
-import 'package:suricates_app/view/widgets/text_field.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/widgets/info_bar.dart';
-import 'package:suricates_app/model/current_user.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/strings.dart';
+import '/services/authentification/auth_service.dart';
+import '../widgets/transparent_button.dart';
+import '../widgets/loading_widget.dart';
+import '/model/current_user.dart';
+import '../widgets/filled_button.dart';
 import 'package:flutter/material.dart';
+import '../widgets/text_field.dart';
+import '../navigations/appbar.dart';
+import '../widgets/info_bar.dart';
+import 'edit_profile_page.dart';
+import '/strings.dart';
+import '/colors.dart';
 
 class ConnectionPage extends StatefulWidget {
   bool hasAccount;

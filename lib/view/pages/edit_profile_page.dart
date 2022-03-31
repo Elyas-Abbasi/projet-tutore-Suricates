@@ -1,18 +1,18 @@
-import 'package:suricates_app/services/authentification/auth_service.dart';
-import 'package:suricates_app/services/firebase_stockage/post_image.dart';
-import 'package:suricates_app/services/firebase_stockage/get_image.dart';
-import 'package:suricates_app/services/image_picker/image_picker.dart';
-import 'package:suricates_app/view/widgets/transparent_button.dart';
-import 'package:suricates_app/view/widgets/loading_widget.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/widgets/text_field.dart';
-import 'package:suricates_app/view/widgets/info_bar.dart';
-import 'package:suricates_app/model/current_user.dart';
+import '/services/authentification/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/strings.dart';
+import '/services/firebase_stockage/post_image.dart';
+import '/services/firebase_stockage/get_image.dart';
+import '/services/image_picker/image_picker.dart';
+import '../widgets/transparent_button.dart';
+import '../widgets/loading_widget.dart';
+import '../widgets/filled_button.dart';
 import 'package:flutter/material.dart';
+import '../navigations/appbar.dart';
+import '../widgets/text_field.dart';
+import '../widgets/info_bar.dart';
+import '/model/current_user.dart';
+import '/strings.dart';
+import '/colors.dart';
 import 'dart:io';
 
 class EditProfilePage extends StatefulWidget {

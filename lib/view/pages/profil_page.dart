@@ -1,15 +1,15 @@
-import 'package:suricates_app/services/firebase_stockage/get_image.dart';
-import 'package:suricates_app/services/firestore/get_list_ad.dart';
-import 'package:suricates_app/view/pages/edit_profile_page.dart';
-import 'package:suricates_app/view/widgets/switch_tabbar.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/globals.dart' as globals;
-import 'package:suricates_app/model/current_user.dart';
-import 'package:suricates_app/model/global_user.dart';
-import 'package:suricates_app/colors_suricates.dart';
+import '/services/firebase_stockage/get_image.dart';
+import '/services/firestore/get_list_ad.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:suricates_app/strings.dart';
+import '../widgets/switch_tabbar.dart';
 import 'package:flutter/material.dart';
+import '../navigations/appbar.dart';
+import '/globals.dart' as globals;
+import '/model/current_user.dart';
+import '/model/global_user.dart';
+import 'edit_profile_page.dart';
+import '/strings.dart';
+import '/colors.dart';
 
 class ProfilPage extends StatefulWidget {
   final GlobalUser user;

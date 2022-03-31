@@ -1,5 +1,5 @@
-import 'package:suricates_app/model/global_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'global_user.dart';
 
 class CurrentUser extends GlobalUser {
   late String email;

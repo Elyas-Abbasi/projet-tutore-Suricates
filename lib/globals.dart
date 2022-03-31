@@ -1,6 +1,6 @@
 library suricates.globals;
 
-import 'package:suricates_app/model/current_user.dart';
+import 'model/current_user.dart';
 
 CurrentUser? currentUser;
 

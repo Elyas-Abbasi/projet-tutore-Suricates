@@ -1,10 +1,10 @@
-import 'package:suricates_app/services/authentification/auth_service.dart';
-import 'package:suricates_app/view/pages/connection_page.dart';
-import 'package:suricates_app/view/pages/profil_page.dart';
-import 'package:suricates_app/globals.dart' as globals;
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/strings.dart';
+import '/services/authentification/auth_service.dart';
+import '../pages/connection_page.dart';
 import 'package:flutter/material.dart';
+import '/globals.dart' as globals;
+import '../pages/profil_page.dart';
+import '/strings.dart';
+import '/colors.dart';
 
 class MyBurgerMenu extends StatefulWidget {
   const MyBurgerMenu({Key? key}) : super(key: key);

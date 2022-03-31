@@ -1,6 +1,6 @@
-import 'package:suricates_app/model/conversation.dart';
-import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter/material.dart';
+import '/model/conversation.dart';
+import '/colors.dart';
 
 class ConversationItem extends StatefulWidget {
   // Instance d'une annonce

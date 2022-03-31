@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../colors_suricates.dart';
+import '/colors.dart';
 
 class FavoriteIcon extends StatefulWidget {
   final Function(bool) onChanged;

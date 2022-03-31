@@ -1,13 +1,13 @@
-import 'package:suricates_app/services/authentification/auth_service.dart';
-import 'package:suricates_app/services/authentification/onboarding.dart';
-import 'package:suricates_app/view/pages/edit_profile_page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:suricates_app/view/widgets/onboarding.dart';
-import 'package:suricates_app/view/pages/main_page.dart';
+import 'services/authentification/auth_service.dart';
+import 'services/authentification/onboarding.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'view/pages/edit_profile_page.dart';
 import 'package:flutter/material.dart';
+import 'view/widgets/onboarding.dart';
+import 'view/pages/main_page.dart';
 import 'model/current_user.dart';
-import 'colors_suricates.dart';
+import 'colors.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print('Background message : ${message.messageId}');

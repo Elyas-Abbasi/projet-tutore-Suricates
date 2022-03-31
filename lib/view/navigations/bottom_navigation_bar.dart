@@ -1,8 +1,7 @@
-import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:suricates_app/strings.dart';
 import 'package:flutter/material.dart';
-import '../../colors_suricates.dart';
+import '/strings.dart';
+import '/colors.dart';
 
 class NavBar extends StatefulWidget {
   final Function(int) onChanged;
