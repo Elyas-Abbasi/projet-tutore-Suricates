@@ -28,7 +28,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("MAIN PAGE : " + globals.currentUser.toString());
 
     void updateSelected(int select) {
       setState(() {

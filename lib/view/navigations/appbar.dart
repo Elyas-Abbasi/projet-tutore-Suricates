@@ -4,7 +4,7 @@ import 'dart:io';
 
 class AppBarWidget extends PreferredSize {
   final String title;
-  bool? burgerMenu;
+  final bool? burgerMenu;
   final Icon? icon;
   final Color? backgroundColor;
   final Function()? function;
@@ -139,7 +139,6 @@ class HeaderPaint extends CustomPainter {
     path.lineTo(size.width, size.height - 20);
     path.lineTo(0, size.height);
     path.close();
-    // canvas.drawShadow(path, Colors.grey, 5, false);
     canvas.drawPath(path, paint);
   }
 

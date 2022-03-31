@@ -13,9 +13,7 @@ class PostImage {
     String result = "";
 
     await uploadTask.whenComplete(() {
-        print('File Uploaded');
       }).catchError((error) {
-        print("Erreur file no uploaded : " + error);
         result = error.error;
       });
 

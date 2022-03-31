@@ -164,17 +164,15 @@ class _AddAdPage extends State<AddAdPage> {
                             readytoSend();
                           }),
                     ),
-                    Container(
-                      child: SuricatesTextField(
-                          textInputType: TextInputType.multiline,
-                          enable: fieldEnabled,
-                          hint: TextsSuricates.adPresentation,
-                          maxLines: 3,
-                          getText: (description) {
-                            newAd.description = description;
-                            readytoSend();
-                          }),
-                    ),
+                    SuricatesTextField(
+                        textInputType: TextInputType.multiline,
+                        enable: fieldEnabled,
+                        hint: TextsSuricates.adPresentation,
+                        maxLines: 3,
+                        getText: (description) {
+                          newAd.description = description;
+                          readytoSend();
+                        }),
                     const Text(
                       TextsSuricates.requiredTextField,
                       textAlign: TextAlign.center,
@@ -199,14 +197,12 @@ class _AddAdPage extends State<AddAdPage> {
 
                                 if (result.contains("noNetwork")) {
                                   PublishNewAd().clearCache();
-                                  print("Pas de connexion internet.");
                                   setState(() {
                                     loading = false;
                                     fieldEnabled = true;
                                     readyToSend = true;
                                   });
                                 } else {
-                                print(result.toString());
                                  Navigator.pushNamed(context, "/");
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => AdPage(ad: result[0], url: result[2], isNetwork: true)));
                                       }

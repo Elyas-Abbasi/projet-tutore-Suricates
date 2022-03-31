@@ -24,8 +24,6 @@ class ConversationItem extends StatefulWidget {
 class _ConversationItem extends State<ConversationItem> {
   @override
   Widget build(BuildContext context) {
-    // Chemin icône position
-    String iconPosition = "images/icon_position.svg";
 
     return Container(
         margin: const EdgeInsets.symmetric(vertical: 2),

@@ -38,9 +38,6 @@ class _ConversationPageState extends State<ConversationPage> {
           if (snapshot.hasData) {
             List conversations = snapshot.data!.docs;
             conversations = conversations.reversed.toList();
-            // conversations.sort((a, b) {
-            //   return b['time'] - a['time'];
-            // });
             return ListView.builder(
               itemCount: snapshot.data!.docs.length,
               itemBuilder: (context, index) {

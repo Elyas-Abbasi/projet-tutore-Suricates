@@ -123,7 +123,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
       }).timeout(const Duration(seconds: 10), onTimeout: () {
         resultPseudo = false;
       });
-      ;
     } else {
       resultPseudo = true;
     }
