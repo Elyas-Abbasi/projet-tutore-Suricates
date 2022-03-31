@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/model/current_user.dart';
 import 'package:suricates_app/services/authentification/auth_service.dart';
-import 'package:suricates_app/strings.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/pages/edit_profile_page.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
-import 'package:suricates_app/view/widgets/info_bar.dart';
-import 'package:suricates_app/view/widgets/loading_widget.dart';
-import 'package:suricates_app/view/widgets/text_field.dart';
 import 'package:suricates_app/view/widgets/transparent_button.dart';
+import 'package:suricates_app/view/pages/edit_profile_page.dart';
+import 'package:suricates_app/view/widgets/loading_widget.dart';
+import 'package:suricates_app/view/widgets/filled_button.dart';
+import 'package:suricates_app/view/widgets/text_field.dart';
+import 'package:suricates_app/view/navigations/appbar.dart';
+import 'package:suricates_app/view/widgets/info_bar.dart';
+import 'package:suricates_app/model/current_user.dart';
+import 'package:suricates_app/colors_suricates.dart';
+import 'package:suricates_app/strings.dart';
+import 'package:flutter/material.dart';
 
 class ConnectionPage extends StatefulWidget {
   bool hasAccount;

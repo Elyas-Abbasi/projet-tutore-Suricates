@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/globals.dart';
-import 'package:suricates_app/model/ad.dart';
-import 'package:suricates_app/model/conversation.dart';
 import 'package:suricates_app/model/current_user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:suricates_app/model/global_user.dart';
 import 'package:suricates_app/model/message.dart';
+import 'package:suricates_app/model/ad.dart';
 
 class ChatService {
   final CurrentUser currentUser;

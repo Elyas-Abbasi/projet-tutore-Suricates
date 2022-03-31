@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:suricates_app/services/firestore/get_list_ad.dart';
-import 'package:suricates_app/strings.dart';
+import 'package:suricates_app/view/widgets/switch_tabbar.dart';
 import 'package:suricates_app/view/widgets/filter_button.dart';
 import 'package:suricates_app/view/widgets/search_bar.dart';
-import 'package:suricates_app/view/widgets/switch_tabbar.dart';
+import 'package:suricates_app/strings.dart';
+import 'package:flutter/material.dart';
 
 class DealsPage extends StatefulWidget {
   const DealsPage({Key? key}) : super(key: key);

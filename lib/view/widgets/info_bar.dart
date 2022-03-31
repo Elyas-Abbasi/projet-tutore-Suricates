@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/strings.dart';
+import 'package:flutter/material.dart';
 
 class InfoBar extends StatelessWidget {
   final String text;

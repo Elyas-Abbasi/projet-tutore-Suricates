@@ -1,11 +1,10 @@
-import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class PickImage {
 
   File? _image;
   final ImagePicker _picker = ImagePicker();
-
 
   Future<File?> chooseImage() async {
     final XFile? pickedFile = await _picker.pickImage(

@@ -1,6 +1,6 @@
+import 'package:suricates_app/services/firebase_stockage/get_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:suricates_app/services/firebase_stockage/get_image.dart';
 
 class ProfilPictureMessage extends StatefulWidget {
   final String userID;

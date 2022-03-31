@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:suricates_app/colors_suricates.dart';
-import 'package:suricates_app/main.dart';
-import 'package:suricates_app/strings.dart';
 import 'package:suricates_app/view/widgets/filled_button.dart';
+import 'package:suricates_app/colors_suricates.dart';
+import 'package:suricates_app/strings.dart';
+import 'package:suricates_app/main.dart';
+import 'package:flutter/cupertino.dart';
 
 class ErrorMessageWidget extends StatelessWidget {
   @override

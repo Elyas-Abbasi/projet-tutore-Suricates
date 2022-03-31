@@ -1,19 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:suricates_app/view/widgets/filled_button.dart';
 import 'package:suricates_app/colors_suricates.dart';
 import 'package:suricates_app/strings.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
-
-// Display Bottom Sheet Dialog :
-
-/*
-showModalBottomSheet(
-  context: context,
-  builder: (context) => BottomSheetDialog(),
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(top: Radius.circular(24))
-  ))
-*/
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BottomSheetDialog extends StatefulWidget {
   final bool? dismissOnContinue;
