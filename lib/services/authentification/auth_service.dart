@@ -1,10 +1,10 @@
-import 'package:suricates_app/services/messaging/notification_service.dart';
-import 'package:suricates_app/model/current_user.dart';
-import 'package:suricates_app/globals.dart' as globals;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../messaging/notification_service.dart';
 import 'package:suricates_app/main.dart';
 import 'package:flutter/material.dart';
+import '/model/current_user.dart';
+import '/globals.dart' as globals;
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;

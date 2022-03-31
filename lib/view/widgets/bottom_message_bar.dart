@@ -1,8 +1,8 @@
-import 'package:suricates_app/services/messaging/chat_service.dart';
-import 'package:suricates_app/view/widgets/text_field.dart';
+import '/services/messaging/chat_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../colors_suricates.dart';
+import 'text_field.dart';
+import '/colors.dart';
 
 class BottomMessageBar extends StatefulWidget {
   final ChatService chatParams;

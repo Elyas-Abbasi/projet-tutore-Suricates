@@ -1,7 +1,7 @@
-import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:suricates_app/model/ad.dart';
 import 'package:flutter/material.dart';
+import '/model/ad.dart';
+import '/colors.dart';
 
 class ListItemWidget extends StatefulWidget {
   // Instance d'une annonce

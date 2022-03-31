@@ -1,11 +1,11 @@
-import 'package:suricates_app/services/messaging/chat_service.dart';
-import 'package:suricates_app/view/widgets/bottom_message_bar.dart';
-import 'package:suricates_app/view/widgets/loading_widget.dart';
-import 'package:suricates_app/view/widgets/chat_message.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/model/message.dart';
+import '/services/messaging/chat_service.dart';
+import '../widgets/bottom_message_bar.dart';
+import '../widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
+import '../widgets/chat_message.dart';
+import '../navigations/appbar.dart';
+import '/model/message.dart';
 
 class ChatPage extends StatefulWidget {
   final ChatService chatParams;

@@ -1,9 +1,9 @@
-import 'package:suricates_app/services/firebase_stockage/post_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:suricates_app/globals.dart' as globals;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:suricates_app/model/ad_type.dart';
-import 'package:suricates_app/model/ad.dart';
+import '../firebase_stockage/post_image.dart';
+import '/globals.dart' as globals;
+import '/model/ad_type.dart';
+import '/model/ad.dart';
 import 'dart:io';
 
 class PublishNewAd {

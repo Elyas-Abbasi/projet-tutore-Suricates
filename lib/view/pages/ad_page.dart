@@ -1,19 +1,19 @@
-import 'package:suricates_app/services/messaging/chat_service.dart';
-import 'package:suricates_app/view/navigations/burger_menu.dart';
-import 'package:suricates_app/view/pages/connection_page.dart';
-import 'package:suricates_app/view/widgets/favorite_icon.dart';
-import 'package:suricates_app/view/widgets/filled_button.dart';
-import 'package:suricates_app/view/navigations/appbar.dart';
-import 'package:suricates_app/view/pages/profil_page.dart';
-import 'package:suricates_app/view/pages/chat_page.dart';
-import 'package:suricates_app/globals.dart' as globals;
-import 'package:suricates_app/model/global_user.dart';
-import 'package:suricates_app/model/ad_type.dart';
-import 'package:suricates_app/model/ad.dart';
-import 'package:suricates_app/strings.dart';
+import '/services/messaging/chat_service.dart';
+import '../navigations/burger_menu.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../../colors_suricates.dart';
+import '../widgets/favorite_icon.dart';
+import '../widgets/filled_button.dart';
+import '../navigations/appbar.dart';
+import '/globals.dart' as globals;
+import '/model/global_user.dart';
+import 'connection_page.dart';
+import '/model/ad_type.dart';
+import 'profil_page.dart';
+import 'chat_page.dart';
+import '/model/ad.dart';
+import '/strings.dart';
+import '/colors.dart';
 
 class AdPage extends StatefulWidget {
   final Ad ad;

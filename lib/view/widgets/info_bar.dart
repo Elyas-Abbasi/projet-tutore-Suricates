@@ -1,5 +1,5 @@
-import 'package:suricates_app/colors_suricates.dart';
 import 'package:flutter/material.dart';
+import '/colors.dart';
 
 class InfoBar extends StatelessWidget {
   final String text;
