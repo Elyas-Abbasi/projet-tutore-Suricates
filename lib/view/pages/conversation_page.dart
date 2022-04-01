@@ -67,7 +67,8 @@ class _ConversationPageState extends State<ConversationPage> {
               }
               );
           } else {
-            return const Center(child: Text("Démarrez votre première discussion en proposant un produit ou en faisant une offre !", textAlign: TextAlign.center,));
+            return const Center(child: Text( r'Démarrez votre première discussion en proposant \n un produit ou en faisant une offre !',
+              textAlign: TextAlign.center,));
           }
         },
       ),
