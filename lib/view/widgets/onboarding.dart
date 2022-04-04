@@ -32,7 +32,7 @@ class _MyOnboarding extends State<MyOnboarding> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
@@ -41,7 +41,7 @@ class _MyOnboarding extends State<MyOnboarding> {
                   ),
                   elevation: 4,
                   child: Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,7 +75,7 @@ class _MyOnboarding extends State<MyOnboarding> {
     PageViewModel(
       decoration: const PageDecoration(pageColor: ColorsSuricates.white),
       titleWidget: const Padding(
-        padding: EdgeInsets.only(top: 80,),
+        padding: EdgeInsets.only(top: 80),
         child: Text(
           "📦",
           style: TextStyle(fontSize: 180),
@@ -87,7 +87,7 @@ class _MyOnboarding extends State<MyOnboarding> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.3,
                 child: Card(
@@ -96,7 +96,7 @@ class _MyOnboarding extends State<MyOnboarding> {
                   ),
                   elevation: 4,
                   child: Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -130,7 +130,7 @@ class _MyOnboarding extends State<MyOnboarding> {
     PageViewModel(
       decoration: const PageDecoration(pageColor: ColorsSuricates.white),
       titleWidget: const Padding(
-        padding: EdgeInsets.only(top: 80,),
+        padding: EdgeInsets.only(top: 80),
         child: Text(
           "🔎",
           style: TextStyle(fontSize: 180),
@@ -151,7 +151,7 @@ class _MyOnboarding extends State<MyOnboarding> {
                   ),
                   elevation: 4,
                   child: Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,

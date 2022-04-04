@@ -34,7 +34,7 @@ class GetListAd extends StatelessWidget {
       future: whichFuture(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return ErrorMessageWidget();
+          return const ErrorMessageWidget();
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
