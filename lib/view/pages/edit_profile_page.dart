@@ -79,9 +79,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           showError = true;
         });
       }
-      setState(() {
-        buttonEnabled = false;
-      });
+      setState(() => buttonEnabled = false);
     }
   }
 
@@ -163,9 +161,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ? AppBarWidget(
                 title: TextsSuricates.editProfile,
                 icon: const Icon(Icons.arrow_back_ios_new),
-                function: () {
-                  Navigator.pop(context);
-                })
+                function: () => Navigator.pop(context),)
             : AppBarWidget(title: TextsSuricates.createProfile),
         body: Stack(children: [
           Container(
@@ -221,9 +217,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       hint: "Pseudo",
                       textInputType: TextInputType.name,
                       controller: pseudoController,
-                      getText: (pseudo) {
-                        readyToSend();
-                      }),
+                      getText: (pseudo) =>readyToSend(), ),
                   Visibility(
                     child: InfoBar(
                         text: textError,
@@ -245,9 +239,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         text: TextsSuricates.save,
                         enabled: buttonEnabled,
                         backgroundColor: ColorsSuricates.orange,
-                        onPressed: () {
-                          send();
-                        },
+                        onPressed: () => send(),
                       ),
                     ],
                   )

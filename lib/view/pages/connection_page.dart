@@ -61,9 +61,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
         loginButtonEnabled = false;
       });
     } else {
-      setState(() {
-        showLoginError = false;
-      });
+      setState(() => showLoginError = false);
       if (_loginPassword == null ||
           _loginPassword!.isEmpty ||
           _loginPassword!.length < 6) {
@@ -284,9 +282,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                                   height: 4,
                                 ),
                                 TextButton(
-                                    onPressed: () {
-                                      //TODO forgot password
-                                    },
+                                    onPressed: () {},
                                     child: const Text(
                                       TextsSuricates.forgotPassword,
                                       style: TextStyle(
@@ -297,9 +293,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                                 ),
                                 FilledButton(
                                   text: TextsSuricates.login,
-                                  onPressed: () async {
-                                    login();
-                                  },
+                                  onPressed: () async => login(),
                                   enabled: loginButtonEnabled,
                                   backgroundColor: ColorsSuricates.orange,
                                 ),
@@ -314,11 +308,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                               ),
                               FilledButton(
                                   text: TextsSuricates.joinSuricates,
-                                  onPressed: () {
-                                    setState(() {
-                                      widget.hasAccount = false;
-                                    });
-                                  },
+                                  onPressed: () => setState(() => widget.hasAccount = false),
                                   enabled: true)
                             ],
                           )
@@ -396,9 +386,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                             ),
                             FilledButton(
                               text: TextsSuricates.joinSuricates,
-                              onPressed: () {
-                                register();
-                              },
+                              onPressed: () => register(),
                               enabled: registerButtonEnabled,
                               backgroundColor: ColorsSuricates.orange,
                             ),
@@ -407,11 +395,7 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                             ),
                             TransparentButton(
                                 text: TextsSuricates.cancelSignIn,
-                                onPressed: () {
-                                  setState(() {
-                                    widget.hasAccount = true;
-                                  });
-                                })
+                                onPressed: () => setState(() => widget.hasAccount = true),)
                           ],
                         ),
                       )),

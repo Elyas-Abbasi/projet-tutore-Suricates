@@ -29,11 +29,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
 
-    void updateSelected(int select) {
-      setState(() {
-        selectedIndex = select;
-      });
-    }
+    void updateSelected(int select) => setState(() => selectedIndex = select);
 
     List<PreferredSizeWidget> _appBar = [
       AppBarWidget(title: TextsSuricates.deals, burgerMenu: true),

@@ -34,11 +34,7 @@ class _ConversationItem extends State<ConversationItem> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.onTapItem();
-                  });
-                },
+                onTap: () => setState(() => widget.onTapItem()),
                 child: Container(
                     padding: const EdgeInsets.all(10),
                     child: Row(

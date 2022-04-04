@@ -13,9 +13,6 @@ class NotificationService {
     });
   }
 
-  static Future<String?> getToken() async {
-    return FirebaseMessaging.instance.getToken();
-  }
-
+  static Future<String?> getToken() async => FirebaseMessaging.instance.getToken();
 
 }

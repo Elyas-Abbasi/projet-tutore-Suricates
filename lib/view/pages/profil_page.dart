@@ -41,9 +41,7 @@ class _ProfilPage extends State<ProfilPage> {
 
   void selectList(int select) {
     if (_currentSelection != select) {
-      setState(() {
-        _currentSelection = select;
-      });
+      setState(() => _currentSelection = select);
     }
   }
 
@@ -54,9 +52,8 @@ class _ProfilPage extends State<ProfilPage> {
           ? AppBarWidget(
               title: TextsSuricates.profile,
               icon: const Icon(Icons.arrow_back_ios_new),
-              function: () {
-                Navigator.pop(context);
-              })
+              function: () => Navigator.pop(context),
+          )
           : null,
       body: Column(children: [
         Material(
@@ -173,9 +170,7 @@ class _ProfilPage extends State<ProfilPage> {
             Container(
                 margin: const EdgeInsets.only(bottom: 16),
                 child: SwitchTabBar(
-                  selectItem: (selectItem) {
-                    selectList(selectItem);
-                  },
+                  selectItem: (selectItem) => selectList(selectItem),
                   title1: widget.user.uid == globals.currentUser?.uid
                       ? TextsSuricates.myDeals
                       : TextsSuricates.hisDeals,
@@ -187,12 +182,9 @@ class _ProfilPage extends State<ProfilPage> {
         Expanded(
           child: PageView(
             controller: _controller,
-            onPageChanged: (int index) {
-              changeItemSelection(index);
-            },
+            onPageChanged: (int index) => changeItemSelection(index),
             children: [
               GetListAd(justUserAds: widget.user.uid),
-              Container(),
             ],
           ),
         ),

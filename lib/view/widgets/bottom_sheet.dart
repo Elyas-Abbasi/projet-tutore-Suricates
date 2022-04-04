@@ -26,11 +26,7 @@ class _BottomSheetDialogState extends State<BottomSheetDialog> {
     selectedItem = -1;
   }
 
-  changeSelectedItem(int position) {
-    setState(() {
-      selectedItem = position;
-    });
-  }
+  changeSelectedItem(int position) => setState(() => selectedItem = position);
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +48,7 @@ class _BottomSheetDialogState extends State<BottomSheetDialog> {
                 child: RadioButton(
                   TextsSuricates.exchangeExisting,
                   checked: (selectedItem == 0),
-                  function: () {
-                    changeSelectedItem(0);
-                  },
+                  function: () => changeSelectedItem(0),
                 ),
               ),
               Container(
@@ -62,9 +56,7 @@ class _BottomSheetDialogState extends State<BottomSheetDialog> {
                 child: RadioButton(
                   TextsSuricates.exchangePhoto,
                   checked: (selectedItem == 1),
-                  function: () {
-                    changeSelectedItem(1);
-                  },
+                  function: () => changeSelectedItem(1),
                 ),
               ),
               Row(

@@ -36,9 +36,7 @@ class _AdPageState extends State<AdPage> {
           title: TextsSuricates.deal,
           burgerMenu: true,
           icon: const Icon(Icons.arrow_back_ios_new),
-          function: () {
-            Navigator.pop(context);
-          }),
+          function: () => Navigator.pop(context)),
       body: Column(children: [
         Container(
           margin: const EdgeInsets.only(bottom: 4),

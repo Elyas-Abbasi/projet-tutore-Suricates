@@ -35,11 +35,7 @@ class _ListItemWidgetState extends State<ListItemWidget> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.onTapItem();
-                  });
-                },
+                onTap: () => setState(() => widget.onTapItem()),
                 child: Container(
                     padding: const EdgeInsets.all(13),
                     child: Row(

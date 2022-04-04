@@ -24,14 +24,10 @@ class SuricatesTextField extends StatefulWidget {
 }
 
 class _SuricatesTextFieldState extends State<SuricatesTextField> {
-  void updateText(String text) {
-    widget.getText(text);
-  }
+  void updateText(String text) => widget.getText(text);
 
   @override
-  void initState() {
-    super.initState();
-  }
+  void initState() => super.initState();
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +54,7 @@ class _SuricatesTextFieldState extends State<SuricatesTextField> {
         maxLines: widget.maxLines ?? 1,
         decoration:
             InputDecoration(hintText: widget.hint, border: InputBorder.none),
-        onChanged: (text) {
-          updateText(text);
-        },
+        onChanged: (text) => updateText(text),
       ),
     );
   }

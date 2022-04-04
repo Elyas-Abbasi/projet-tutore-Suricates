@@ -27,9 +27,7 @@ class ErrorMessageWidget extends StatelessWidget {
           FilledButton(
             text: "Réessayer",
             enabled: true,
-            onPressed: () {
-              runApp(const MyApp());
-            },
+            onPressed: () => runApp(const MyApp()),
           )
         ],
       ),

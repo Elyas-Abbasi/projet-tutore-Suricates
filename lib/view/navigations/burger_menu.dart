@@ -163,13 +163,11 @@ class _MyBurgerMenuState extends State<MyBurgerMenu> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      setState(() {
                         setState(() {
                           AuthService().signOut();
                           email = "";
                           pseudo = "";
                         });
-                      });
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 16),

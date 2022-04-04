@@ -60,9 +60,7 @@ class _DealsPageState extends State<DealsPage> {
                             children: [
                               Expanded(
                                 child: SwitchTabBar(
-                                  selectItem: (selectItem) {
-                                    changeItemSelection(selectItem);
-                                  },
+                                  selectItem: (selectItem) => changeItemSelection(selectItem),
                                   title1: TextsSuricates.iSearch,
                                   title2: TextsSuricates.theySearch,
                                   position: _currentSelection,
@@ -80,9 +78,7 @@ class _DealsPageState extends State<DealsPage> {
           Expanded(
             child: PageView(
               controller: _controller,
-              onPageChanged: (int index) {
-                changeItemSelection(index);
-              },
+              onPageChanged: (int index) => changeItemSelection(index),
               children: const [
                 GetListAd(type: "exchange"),
                 GetListAd(type: "search"),

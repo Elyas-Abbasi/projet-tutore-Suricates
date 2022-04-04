@@ -18,9 +18,7 @@ class NavBarState extends State<NavBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  void _onItemTapped(int index) {
-    widget.onChanged(index);
-  }
+  void _onItemTapped(int index) => widget.onChanged(index);
 
   @override
   Widget build(BuildContext context) {

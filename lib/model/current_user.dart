@@ -6,7 +6,5 @@ class CurrentUser extends GlobalUser {
 
   CurrentUser(uid, pseudo, this.email) : super(uid, pseudo);
 
-  static CurrentUser? fromUserFirebase(User user) {
-    return null;
-  }
+  static CurrentUser? fromUserFirebase(User user) => null ;
 }

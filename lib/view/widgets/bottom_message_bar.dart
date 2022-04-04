@@ -56,9 +56,7 @@ class _BottomMessageBar extends State<BottomMessageBar> {
               borderRadius: const BorderRadius.all(Radius.circular(13)),
               child: InkWell(
                 borderRadius: BorderRadius.circular(13),
-                onTap: () {
-                  widget.sendFunction();
-                },
+                onTap: () => widget.sendFunction(),
                 child: Container(
                   margin: const EdgeInsets.all(10),
                   child: SvgPicture.asset(
