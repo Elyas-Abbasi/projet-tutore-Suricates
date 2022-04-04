@@ -133,12 +133,12 @@ class HeaderPaint extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = ColorsSuricates.blue;
-    Path path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height - 20);
-    path.lineTo(0, size.height);
-    path.close();
+    Path path = Path()
+    ..moveTo(0, 0)
+    ..lineTo(size.width, 0)
+    ..lineTo(size.width, size.height - 20)
+    ..lineTo(0, size.height)
+    ..close();
     canvas.drawPath(path, paint);
   }
 
