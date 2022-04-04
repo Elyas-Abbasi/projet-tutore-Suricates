@@ -127,8 +127,8 @@ class _ConversationItem extends State<ConversationItem> {
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Icon(Icons.arrow_forward_ios,
+                          children: const <Widget>[
+                            Icon(Icons.arrow_forward_ios,
                                 color: ColorsSuricates.blue),
                           ],
                         ),
