@@ -51,9 +51,7 @@ class _ChatPageState extends State<ChatPage> {
         appBar: AppBarWidget(
             title: '${chat.peerUser.pseudo} - ${chat.ad.title}',
             icon: const Icon(Icons.arrow_back_ios_new),
-            function: () {
-              Navigator.pop(context);
-            }),
+            function: () => Navigator.pop(context)),
         body: Stack(
           children: [
             Column(

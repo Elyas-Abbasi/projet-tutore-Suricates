@@ -32,11 +32,7 @@ class _OpinionItemWidgetState extends State<OpinionItemWidget> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: InkWell(
-                onTap: () {
-                  setState(() {
-                    widget.onTapItem();
-                  });
-                },
+                onTap: () => setState(() => widget.onTapItem()),
                 child: Container(
                     padding: const EdgeInsets.all(12),
                     child: Row(

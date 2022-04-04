@@ -52,9 +52,7 @@ class _SwitchTabBarState extends State<SwitchTabBar> {
             children: [
               Expanded(
                 child: GestureDetector(
-                  onTap: () {
-                    changeItemSelection(0);
-                  },
+                  onTap: () => changeItemSelection(0),
                   child: SwitchTabBarItem(
                       enable: (widget.position == 0),
                       itemName: widget.title1,
@@ -64,9 +62,7 @@ class _SwitchTabBarState extends State<SwitchTabBar> {
               const SizedBox(width: 10),
               Expanded(
                 child: GestureDetector(
-                  onTap: () {
-                    changeItemSelection(1);
-                  },
+                  onTap: () => changeItemSelection(1),
                   child: SwitchTabBarItem(
                       enable: (widget.position == 1),
                       itemName: widget.title2,

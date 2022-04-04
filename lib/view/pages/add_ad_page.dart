@@ -31,9 +31,7 @@ class _AddAdPage extends State<AddAdPage> {
 
   void updateAd(int select) {
     if (_currentSelection != select) {
-      setState(() {
-        _currentSelection = select;
-      });
+      setState(() => _currentSelection = select);
 
     select == 0 ? newAd.type = AdType.exchange : newAd.type = AdType.search;
     }
@@ -41,13 +39,9 @@ class _AddAdPage extends State<AddAdPage> {
 
   void readytoSend() {
     if (newAd.description != "" && newAd.city != "" && newAd.description != "" && image != null) {
-      setState(() {
-        readyToSend = true;
-      });
+      setState(() => readyToSend = true);
     } else {
-      setState(() {
-        readyToSend = false;
-      });
+      setState(() => readyToSend = false);
     }
   }
 
@@ -112,9 +106,7 @@ class _AddAdPage extends State<AddAdPage> {
                 Container(
                     margin: const EdgeInsets.only(bottom: 16),
                     child: SwitchTabBar(
-                    selectItem: (selectItem) {
-                      updateAd(selectItem);
-                    },
+                    selectItem: (selectItem) => updateAd(selectItem),
                     title1: TextsSuricates.exchange,
                     title2: TextsSuricates.iSearch,
                     position: _currentSelection,
@@ -186,7 +178,6 @@ class _AddAdPage extends State<AddAdPage> {
                               text: TextsSuricates.checkAndSend,
                               backgroundColor: ColorsSuricates.orange,
                               onPressed: () async {
-
                                 setState(() {
                                   loading = true;
                                   readyToSend = false;

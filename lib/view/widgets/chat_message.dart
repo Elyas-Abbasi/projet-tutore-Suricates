@@ -36,11 +36,7 @@ class _ChatMessage extends State<ChatMessage> {
         ? ColorsSuricates.backgroundBlue
         : ColorsSuricates.backgroundOrange;
 
-    void setHourVisible() {
-      setState(() {
-        visible = !visible;
-      });
-    }
+    void setHourVisible() => setState(() => visible = !visible);
 
     return Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,9 +61,7 @@ class _ChatMessage extends State<ChatMessage> {
                         child: InkWell(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(15)),
-                          onTap: () {
-                            setHourVisible();
-                          },
+                          onTap: () => setHourVisible(),
                           child: Container(
                             margin: const EdgeInsets.symmetric(
                                 vertical: 8, horizontal: 8),

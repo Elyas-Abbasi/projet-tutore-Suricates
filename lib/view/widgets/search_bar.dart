@@ -27,9 +27,7 @@ class _MySearchBarState extends State<MySearchBar> {
     _focusNode.dispose();
   }
 
-  void updateText(String text) {
-    widget.getText(text);
-  }
+  void updateText(String text) => widget.getText(text);
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +49,10 @@ class _MySearchBarState extends State<MySearchBar> {
             suffixIcon: IconButton(
               color: ColorsSuricates.blue,
               icon: const Icon(Icons.search),
-              onPressed: () => {
-                _focusNode.unfocus()
-              },
+              onPressed: () => _focusNode.unfocus(),
             ),
         ),
-        onChanged: (text) {
-          updateText(text);
-        },
+        onChanged: (text) => updateText(text),
       ),
     );
 

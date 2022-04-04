@@ -48,9 +48,7 @@ class _FavoriteIconState extends State<FavoriteIcon> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        onPressed: () {
-          toggleFavorite();
-        },
+        onPressed: () => toggleFavorite(),
         icon: _icon);
   }
 }
