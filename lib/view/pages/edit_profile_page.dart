@@ -221,8 +221,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   Visibility(
                     child: InfoBar(
                         text: textError,
-                        textColor: Colors.red[900],
-                        backgroundColor: Colors.red[100]),
+                        textColor: ColorsSuricates.redDark,
+                        backgroundColor: ColorsSuricates.redLight),
                     visible: showError,
                   ),
                   const SizedBox(height: 50),

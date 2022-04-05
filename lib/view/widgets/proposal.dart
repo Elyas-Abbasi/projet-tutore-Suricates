@@ -235,7 +235,7 @@ class ProposalImage extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 4),
+              border: Border.all(color: ColorsSuricates.white, width: 4),
               borderRadius: const BorderRadius.all(Radius.circular(12))),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),

@@ -32,7 +32,7 @@ class _FilledButtonState extends State<FilledButton> {
       child: Text(
         widget.text,
         style: TextStyle(
-            color: widget.textColor ?? Colors.white,
+            color: widget.textColor ?? ColorsSuricates.white,
             fontSize: 18,
             fontWeight: widget.fontWeight ?? FontWeight.bold),
         textAlign: widget.textAlign ?? TextAlign.left,

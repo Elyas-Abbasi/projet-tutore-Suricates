@@ -57,7 +57,7 @@ class _ProfilPage extends State<ProfilPage> {
           : null,
       body: Column(children: [
         Material(
-          color: Colors.white,
+          color: ColorsSuricates.white,
           elevation: 4.0,
           borderRadius: const BorderRadius.only(
               bottomRight: Radius.circular(25),
@@ -124,7 +124,7 @@ class _ProfilPage extends State<ProfilPage> {
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
                                     child: Material(
-                                        color: Colors.white,
+                                        color: ColorsSuricates.white,
                                         child: widget.user is CurrentUser
                                             ? InkWell(
                                                 child: Padding(

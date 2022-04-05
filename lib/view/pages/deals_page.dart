@@ -1,3 +1,5 @@
+import 'package:suricates_app/colors.dart';
+
 import '/services/firestore/get_list_ad.dart';
 import '../widgets/switch_tabbar.dart';
 import '../widgets/filter_button.dart';
@@ -37,7 +39,7 @@ class _DealsPageState extends State<DealsPage> {
           Container(
             margin: const EdgeInsets.only(bottom: 4),
             child: Material(
-              color: Colors.white,
+              color: ColorsSuricates.white,
               elevation: 4.0,
               borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(25),
