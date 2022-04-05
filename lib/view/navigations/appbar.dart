@@ -62,7 +62,7 @@ class AppBarWidget extends PreferredSize {
                           padding: const EdgeInsets.only(bottom: 0, right: 0),
                           icon: const Icon(
                             Icons.menu,
-                            color: Colors.white,
+                            color: ColorsSuricates.white,
                           ),
                           onPressed: () => Scaffold.of(context).openEndDrawer(),
                         ))
@@ -113,7 +113,7 @@ class AppBarWidget extends PreferredSize {
                             padding: const EdgeInsets.only(bottom: 0, right: 0),
                             icon: const Icon(
                               Icons.menu,
-                              color: Colors.white,
+                              color: ColorsSuricates.white,
                             ),
                             onPressed: () =>
                                 Scaffold.of(context).openEndDrawer(),

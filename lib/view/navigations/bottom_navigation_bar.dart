@@ -28,7 +28,7 @@ class NavBarState extends State<NavBar> {
       showSelectedLabels: true,
       selectedItemColor: ColorsSuricates.orange,
       showUnselectedLabels: true,
-      unselectedItemColor: Colors.white,
+      unselectedItemColor: ColorsSuricates.white,
       backgroundColor: ColorsSuricates.blue,
       items: <BottomNavigationBarItem>[
         const BottomNavigationBarItem(

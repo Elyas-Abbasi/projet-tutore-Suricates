@@ -103,7 +103,7 @@ class _ConversationItem extends State<ConversationItem> {
                                         width: 10.0,
                                         height: 10.0,
                                         decoration: const BoxDecoration(
-                                          color: Colors.orange,
+                                          color: ColorsSuricates.orange,
                                           shape: BoxShape.circle,
                                         )),
                                   ),

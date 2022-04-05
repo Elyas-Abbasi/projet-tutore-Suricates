@@ -58,7 +58,7 @@ class _AddAdPage extends State<AddAdPage> {
         Container(
             margin: const EdgeInsets.only(bottom: 4),
             child: Material(
-              color: Colors.white,
+              color: ColorsSuricates.white,
               elevation: 4.0,
               borderRadius: const BorderRadius.only(
                   bottomRight: Radius.circular(25),

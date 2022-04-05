@@ -271,8 +271,8 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                                       Visibility(
                                         child: InfoBar(
                                             text: textError,
-                                            textColor: Colors.red[900],
-                                            backgroundColor: Colors.red[100]),
+                                            textColor: ColorsSuricates.redDark,
+                                            backgroundColor: ColorsSuricates.redLight),
                                         visible: showLoginError,
                                       )
                                     ],
@@ -374,8 +374,8 @@ class _ConnectionContainerState extends State<ConnectionPage> {
                                   Visibility(
                                     child: InfoBar(
                                         text: textError,
-                                        textColor: Colors.red[900],
-                                        backgroundColor: Colors.red[100]),
+                                        textColor: ColorsSuricates.redDark,
+                                        backgroundColor: ColorsSuricates.redLight),
                                     visible: showRegisterError,
                                   ),
                                 ],

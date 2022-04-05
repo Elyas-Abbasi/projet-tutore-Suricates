@@ -13,4 +13,7 @@ class ColorsSuricates {
   static const Color lightGrey = Color(0xffF5F5F5);
   static const Color textBlue = Color(0xff2b4852);
   static const Color textOrange = Color(0xff523b2b);
+  static const Color redDark = Color(0xffB71C1C);
+  static const Color redLight = Color(0xffFFCDD2);
+  static const Color gray = Color(0xff9E9E9E);
 }
