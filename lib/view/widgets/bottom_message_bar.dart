@@ -8,14 +8,20 @@ class BottomMessageBar extends StatefulWidget {
   final ChatService chatParams;
   final TextEditingController messageController;
   final Function() sendFunction;
+
   // Instance d'une annonce
-  const BottomMessageBar({Key? key, required this.chatParams, required this.messageController, required this.sendFunction}) : super(key: key);
+  const BottomMessageBar({
+    Key? key,
+    required this.chatParams,
+    required this.messageController,
+    required this.sendFunction,
+  }) : super(key: key);
+
   @override
   _BottomMessageBar createState() => _BottomMessageBar();
 }
 
 class _BottomMessageBar extends State<BottomMessageBar> {
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -38,19 +44,24 @@ class _BottomMessageBar extends State<BottomMessageBar> {
                 onTap: () {},
                 child: Container(
                   margin: const EdgeInsets.all(10),
-                  child: SvgPicture.asset("images/troc_msg.svg",
-                      width: 20, height: 20, color: ColorsSuricates.white),
+                  child: SvgPicture.asset(
+                    "images/troc_msg.svg",
+                    width: 20,
+                    height: 20,
+                    color: ColorsSuricates.white,
+                  ),
                 ),
               ),
             ),
             Expanded(
-                child: SuricatesTextField(
-              hint: "Ecrivez un message",
-              controller: widget.messageController,
-              getText: (text) {},
-              textInputType: TextInputType.multiline,
-              maxLines: 3,
-            )),
+              child: SuricatesTextField(
+                hint: "Ecrivez un message",
+                controller: widget.messageController,
+                getText: (text) {},
+                textInputType: TextInputType.multiline,
+                maxLines: 3,
+              ),
+            ),
             Material(
               color: ColorsSuricates.blue,
               borderRadius: const BorderRadius.all(Radius.circular(13)),

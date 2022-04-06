@@ -11,16 +11,16 @@ class SwitchTabBar extends StatefulWidget {
   final double marginLeft;
   final double marginRight;
 
-  SwitchTabBar(
-      {Key? key,
-      required this.selectItem,
-      required this.title1,
-      required this.title2,
-      required this.position,
-      this.size,
-      this.marginLeft = 16,
-      this.marginRight = 16})
-      : super(key: key);
+  SwitchTabBar({
+    Key? key,
+    required this.selectItem,
+    required this.title1,
+    required this.title2,
+    required this.position,
+    this.size,
+    this.marginLeft = 16,
+    this.marginRight = 16,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _SwitchTabBarState();
@@ -40,8 +40,10 @@ class _SwitchTabBarState extends State<SwitchTabBar> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin:
-          EdgeInsets.only(left: widget.marginLeft, right: widget.marginRight),
+      margin: EdgeInsets.only(
+        left: widget.marginLeft,
+        right: widget.marginRight,
+      ),
       child: Material(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         color: ColorsSuricates.blue,
@@ -54,9 +56,10 @@ class _SwitchTabBarState extends State<SwitchTabBar> {
                 child: GestureDetector(
                   onTap: () => changeItemSelection(0),
                   child: SwitchTabBarItem(
-                      enable: (widget.position == 0),
-                      itemName: widget.title1,
-                      textSize: widget.size ?? 16.0),
+                    enable: (widget.position == 0),
+                    itemName: widget.title1,
+                    textSize: widget.size ?? 16.0,
+                  ),
                 ),
               ),
               const SizedBox(width: 10),
@@ -64,9 +67,10 @@ class _SwitchTabBarState extends State<SwitchTabBar> {
                 child: GestureDetector(
                   onTap: () => changeItemSelection(1),
                   child: SwitchTabBarItem(
-                      enable: (widget.position == 1),
-                      itemName: widget.title2,
-                      textSize: widget.size ?? 16.0),
+                    enable: (widget.position == 1),
+                    itemName: widget.title2,
+                    textSize: widget.size ?? 16.0,
+                  ),
                 ),
               ),
             ],
@@ -81,12 +85,13 @@ class SwitchTabBarItem extends StatefulWidget {
   final bool enable;
   final String itemName;
   final double textSize;
-  const SwitchTabBarItem(
-      {Key? key,
-      this.enable = true,
-      required this.itemName,
-      required this.textSize})
-      : super(key: key);
+
+  const SwitchTabBarItem({
+    Key? key,
+    this.enable = true,
+    required this.itemName,
+    required this.textSize,
+  }) : super(key: key);
 
   @override
   State<SwitchTabBarItem> createState() => _SwitchTabBarItemState();
@@ -99,12 +104,15 @@ class _SwitchTabBarItemState extends State<SwitchTabBarItem> {
       return Container(
         padding: const EdgeInsets.all(8),
         decoration: const BoxDecoration(
-            color: ColorsSuricates.white,
-            borderRadius: BorderRadius.all(Radius.circular(17))),
+          color: ColorsSuricates.white,
+          borderRadius: BorderRadius.all(Radius.circular(17)),
+        ),
         child: Text(
           widget.itemName,
-          style:
-              TextStyle(color: ColorsSuricates.blue, fontSize: widget.textSize),
+          style: TextStyle(
+            color: ColorsSuricates.blue,
+            fontSize: widget.textSize,
+          ),
           textAlign: TextAlign.center,
           maxLines: 1,
         ),
@@ -113,12 +121,15 @@ class _SwitchTabBarItemState extends State<SwitchTabBarItem> {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: const BoxDecoration(
-          color: ColorsSuricates.blue,
-          borderRadius: BorderRadius.all(Radius.circular(14))),
+        color: ColorsSuricates.blue,
+        borderRadius: BorderRadius.all(Radius.circular(14)),
+      ),
       child: Text(
         widget.itemName,
-        style:
-            TextStyle(color: ColorsSuricates.white, fontSize: widget.textSize),
+        style: TextStyle(
+          color: ColorsSuricates.white,
+          fontSize: widget.textSize,
+        ),
         textAlign: TextAlign.center,
         maxLines: 1,
       ),

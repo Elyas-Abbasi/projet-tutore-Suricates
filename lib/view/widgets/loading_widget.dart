@@ -7,9 +7,10 @@ class LoadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-        child: CircularProgressIndicator(
-      backgroundColor: ColorsSuricates.blue,
-      valueColor: AlwaysStoppedAnimation<Color>(ColorsSuricates.orange),
-    ));
+      child: CircularProgressIndicator(
+        backgroundColor: ColorsSuricates.blue,
+        valueColor: AlwaysStoppedAnimation<Color>(ColorsSuricates.orange),
+      ),
+    );
   }
 }

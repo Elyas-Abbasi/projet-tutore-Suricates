@@ -19,9 +19,11 @@ class EditProfilePage extends StatefulWidget {
   final bool isNewUser;
   final CurrentUser currentUser;
 
-  const EditProfilePage(
-      {Key? key, required this.isNewUser, required this.currentUser})
-      : super(key: key);
+  const EditProfilePage({
+    Key? key,
+    required this.isNewUser,
+    required this.currentUser,
+  }) : super(key: key);
 
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
@@ -93,8 +95,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
     bool resultImage = false;
     bool resultPseudo = false;
     if (image != null) {
-      String url = await PostImage()
-          .postImage(widget.currentUser.uid, 'profile_pictures', image);
+      String url = await PostImage().postImage(
+        widget.currentUser.uid,
+        'profile_pictures',
+        image,
+      );
 
       url.startsWith("https") ? resultImage = true : resultImage = false;
     } else {
@@ -129,7 +134,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
       if (resultPseudo == true || widget.isNewUser == true) {
         await AuthService().getUser();
       }
-
       if (widget.isNewUser) {
         Navigator.pushNamed(context, "/");
       } else {
@@ -161,94 +165,110 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ? AppBarWidget(
                 title: TextsSuricates.editProfile,
                 icon: const Icon(Icons.arrow_back_ios_new),
-                function: () => Navigator.pop(context),)
+                function: () => Navigator.pop(context),
+              )
             : AppBarWidget(title: TextsSuricates.createProfile),
-        body: Stack(children: [
-          Container(
-            margin: const EdgeInsets.all(20),
-            child: Center(
-              child: Column(
-                children: [
-                  SizedBox(
+        body: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(20),
+              child: Center(
+                child: Column(
+                  children: [
+                    SizedBox(
                       width: 120,
                       height: 120,
                       child: Material(
-                          color: ColorsSuricates.lightGrey,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(25)),
-                          child: InkWell(
-                              borderRadius: BorderRadius.circular(25),
-                              onTap: () async {
-                                if (fieldEnabled == true) {
-                                  var imageTemporary =
-                                      await PickImage().chooseImage();
-                                  setState(() => image = imageTemporary);
-                                  readyToSend();
-                                }
-                              },
-                              child: image == null
-                                  ? ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: FutureBuilder(
-                                          future: GetImage.get(
-                                              widget.currentUser.uid,
-                                              "profile_pictures"),
-                                          builder: (context, snap) {
-                                            if (snap.data == null) {
-                                              return Image.asset(
-                                                "images/noProfilePicture.jpg",
-                                                fit: BoxFit.cover,
-                                              );
-                                            } else {
-                                              return Image.network(
-                                                snap.data.toString(),
-                                                fit: BoxFit.cover,
-                                              );
-                                            }
-                                          }),
-                                    )
-                                  : ClipRRect(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child:
-                                          Image.file(image!, fit: BoxFit.cover),
-                                    )))),
-                  const SizedBox(height: 30),
-                  SuricatesTextField(
+                        color: ColorsSuricates.lightGrey,
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25)),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(25),
+                          onTap: () async {
+                            if (fieldEnabled == true) {
+                              var imageTemporary =
+                                  await PickImage().chooseImage();
+                              setState(() => image = imageTemporary);
+                              readyToSend();
+                            }
+                          },
+                          child: image == null
+                              ? ClipRRect(
+                                  borderRadius: BorderRadius.circular(25),
+                                  child: FutureBuilder(
+                                    future: GetImage.get(
+                                      widget.currentUser.uid,
+                                      "profile_pictures",
+                                    ),
+                                    builder: (context, snap) {
+                                      if (snap.data == null) {
+                                        return Image.asset(
+                                          "images/noProfilePicture.jpg",
+                                          fit: BoxFit.cover,
+                                        );
+                                      } else {
+                                        return Image.network(
+                                          snap.data.toString(),
+                                          fit: BoxFit.cover,
+                                        );
+                                      }
+                                    },
+                                  ),
+                                )
+                              : ClipRRect(
+                                  borderRadius: BorderRadius.circular(25),
+                                  child: Image.file(
+                                    image!,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    SuricatesTextField(
                       hint: "Pseudo",
                       textInputType: TextInputType.name,
                       controller: pseudoController,
-                      getText: (pseudo) =>readyToSend(), ),
-                  Visibility(
-                    child: InfoBar(
+                      getText: (pseudo) => readyToSend(),
+                    ),
+                    Visibility(
+                      child: InfoBar(
                         text: textError,
                         textColor: ColorsSuricates.redDark,
-                        backgroundColor: ColorsSuricates.redLight),
-                    visible: showError,
-                  ),
-                  const SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Visibility(
-                        visible: !widget.isNewUser,
-                        child: TransparentButton(
+                        backgroundColor: ColorsSuricates.redLight,
+                      ),
+                      visible: showError,
+                    ),
+                    const SizedBox(height: 50),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Visibility(
+                          visible: !widget.isNewUser,
+                          child: TransparentButton(
                             text: TextsSuricates.cancel,
-                            onPressed: () => Navigator.pop(context)),
-                      ),
-                      FilledButton(
-                        text: TextsSuricates.save,
-                        enabled: buttonEnabled,
-                        backgroundColor: ColorsSuricates.orange,
-                        onPressed: () => send(),
-                      ),
-                    ],
-                  )
-                ],
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ),
+                        FilledButton(
+                          text: TextsSuricates.save,
+                          enabled: buttonEnabled,
+                          backgroundColor: ColorsSuricates.orange,
+                          onPressed: () => send(),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          Visibility(visible: loading, child: const LoadingWidget())
-        ]),
+            Visibility(
+              visible: loading,
+              child: const LoadingWidget(),
+            )
+          ],
+        ),
       ),
     );
   }

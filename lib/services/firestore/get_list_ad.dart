@@ -14,8 +14,11 @@ class GetListAd extends StatelessWidget {
   final String? type;
   final String? justUserAds;
 
-  const GetListAd({Key? key, this.type, this.justUserAds})
-      : super(key: key);
+  const GetListAd({
+    Key? key,
+    this.type,
+    this.justUserAds,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,112 +45,123 @@ class GetListAd extends StatelessWidget {
         }
 
         return ListView.builder(
-            itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index) {
-              Ad ad = Ad.fromSnapShot(snapshot.data!.docs[index]);
-              return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  children: [
-                    index == 0 && type != null
-                        ? InfoBar(
-                            text: type == "exchange"
-                                ? TextsSuricates.hereWhatSuricatesHaveForYou
-                                : TextsSuricates.hereWhatSuricatesLookFor)
-                        : Container(),
-                    FutureBuilder(
-                        future: GetImage.get(ad.id, "ad_images"),
-                        builder: (context, snap) {
-                          if (snap.hasError ||
-                              snapshot.connectionState ==
-                                  ConnectionState.waiting ||
-                              snap.data == null) {
-                            return ListItemWidget(
-                                ad: ad,
-                                url: "images/unknown.jpg",
-                                onTapItem: () {
-                                  WidgetsBinding.instance
-                                      ?.addPostFrameCallback((_) {
-                                    Navigator.push(
-                                        context,
-                                        PageRouteBuilder(
-                                          pageBuilder: (context,
-                                          
-                                                  Animation<double> animation,
-                                                  Animation<double>
-                                                      secondaryAnimation) =>
-                                              AdPage(
-                                                  ad: ad,
-                                                  url: "images/unknown.jpg",
-                                                  isNetwork: false),
-                                          transitionsBuilder: (context,
-                                              animation,
-                                              secondaryAnimation,
-                                              child) {
-                                            const begin = Offset(1.0, 0.0);
-                                            const end = Offset.zero;
-                                            const curve = Curves.ease;
+          itemCount: snapshot.data!.docs.length,
+          itemBuilder: (context, index) {
+            Ad ad = Ad.fromSnapShot(snapshot.data!.docs[index]);
+            return Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  index == 0 && type != null
+                      ? InfoBar(
+                          text: type == "exchange"
+                              ? TextsSuricates.hereWhatSuricatesHaveForYou
+                              : TextsSuricates.hereWhatSuricatesLookFor,
+                        )
+                      : Container(),
+                  FutureBuilder(
+                    future: GetImage.get(ad.id, "ad_images"),
+                    builder: (context, snap) {
+                      if (snap.hasError ||
+                          snapshot.connectionState == ConnectionState.waiting ||
+                          snap.data == null) {
+                        return ListItemWidget(
+                          ad: ad,
+                          url: "images/unknown.jpg",
+                          onTapItem: () {
+                            WidgetsBinding.instance?.addPostFrameCallback((_) {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (
+                                    context,
+                                    Animation<double> animation,
+                                    Animation<double> secondaryAnimation,
+                                  ) =>
+                                      AdPage(
+                                    ad: ad,
+                                    url: "images/unknown.jpg",
+                                    isNetwork: false,
+                                  ),
+                                  transitionsBuilder: (
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
+                                    child,
+                                  ) {
+                                    const begin = Offset(1.0, 0.0);
+                                    const end = Offset.zero;
+                                    const curve = Curves.ease;
 
-                                            var tween = Tween(
-                                                    begin: begin, end: end)
-                                                .chain(
-                                                    CurveTween(curve: curve));
+                                    var tween = Tween(
+                                      begin: begin,
+                                      end: end,
+                                    ).chain(CurveTween(curve: curve));
 
-                                            return SlideTransition(
-                                              position: animation.drive(tween),
-                                              child: child,
-                                            );
-                                          },
-                                        ));
-                                  });
-                                },
-                                isNetwork: false);
-                          } else {
-                            return ListItemWidget(
-                                ad: ad,
-                                url: snap.data.toString(),
-                                onTapItem: () {
-                                  WidgetsBinding.instance
-                                      ?.addPostFrameCallback((_) {
-                                    Navigator.push(
-                                        context,
-                                        PageRouteBuilder(
-                                          pageBuilder: (context,
-                                                  Animation<double> animation,
-                                                  Animation<double>
-                                                      secondaryAnimation) =>
-                                              AdPage(
-                                                  ad: ad,
-                                                  url: snap.data.toString(),
-                                                  isNetwork: true),
-                                          transitionsBuilder: (context,
-                                              animation,
-                                              secondaryAnimation,
-                                              child) {
-                                            const begin = Offset(1.0, 0.0);
-                                            const end = Offset.zero;
-                                            const curve = Curves.ease;
+                                    return SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child,
+                                    );
+                                  },
+                                ),
+                              );
+                            });
+                          },
+                          isNetwork: false,
+                        );
+                      } else {
+                        return ListItemWidget(
+                          ad: ad,
+                          url: snap.data.toString(),
+                          onTapItem: () {
+                            WidgetsBinding.instance?.addPostFrameCallback((_) {
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (
+                                    context,
+                                    Animation<double> animation,
+                                    Animation<double> secondaryAnimation,
+                                  ) =>
+                                      AdPage(
+                                    ad: ad,
+                                    url: snap.data.toString(),
+                                    isNetwork: true,
+                                  ),
+                                  transitionsBuilder: (
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
+                                    child,
+                                  ) {
+                                    const begin = Offset(1.0, 0.0);
+                                    const end = Offset.zero;
+                                    const curve = Curves.ease;
 
-                                            var tween = Tween(
-                                                    begin: begin, end: end)
-                                                .chain(
-                                                    CurveTween(curve: curve));
+                                    var tween = Tween(
+                                      begin: begin,
+                                      end: end,
+                                    ).chain(CurveTween(curve: curve));
 
-                                            return SlideTransition(
-                                              position: animation.drive(tween),
-                                              child: child,
-                                            );
-                                          },
-                                        ));
-                                  });
-                                },
-                                isNetwork: true);
-                          }
-                        }),
-                  ],
-                ),
-              );
-            });
+                                    return SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child,
+                                    );
+                                  },
+                                ),
+                              );
+                            });
+                          },
+                          isNetwork: true,
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ),
+            );
+          },
+        );
       },
     );
   }

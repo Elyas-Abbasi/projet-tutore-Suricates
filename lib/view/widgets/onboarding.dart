@@ -15,12 +15,11 @@ class MyOnboarding extends StatefulWidget {
 }
 
 class _MyOnboarding extends State<MyOnboarding> {
-
   late final listPagesViewModel = [
     PageViewModel(
       decoration: const PageDecoration(pageColor: ColorsSuricates.white),
       titleWidget: const Padding(
-        padding: EdgeInsets.only(top: 80,),
+        padding: EdgeInsets.only(top: 80),
         child: Text(
           "👋",
           style: TextStyle(fontSize: 180),
@@ -55,11 +54,12 @@ class _MyOnboarding extends State<MyOnboarding> {
                         Padding(
                           padding: EdgeInsets.only(bottom: 12),
                           child: Text(
-                              TextsSuricates.page1Message1,
-                          textAlign: TextAlign.center,),
+                            TextsSuricates.page1Message1,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         Text(
-                            TextsSuricates.page1Message2,
+                          TextsSuricates.page1Message2,
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -111,7 +111,8 @@ class _MyOnboarding extends State<MyOnboarding> {
                           padding: EdgeInsets.only(bottom: 12),
                           child: Text(
                             TextsSuricates.page2Message1,
-                            textAlign: TextAlign.center,),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         Text(
                           TextsSuricates.page2Message2,
@@ -166,7 +167,8 @@ class _MyOnboarding extends State<MyOnboarding> {
                           padding: EdgeInsets.only(bottom: 12),
                           child: Text(
                             TextsSuricates.page3Message1,
-                            textAlign: TextAlign.center,),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         Text(
                           TextsSuricates.page3Message2,
@@ -206,17 +208,18 @@ class _MyOnboarding extends State<MyOnboarding> {
         ),
         onDone: () => {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MainPage(currentUser: currentUser),
-              ))
+            context,
+            MaterialPageRoute(
+              builder: (context) => MainPage(currentUser: currentUser),
+            ),
+          )
         },
         globalBackgroundColor: ColorsSuricates.blue,
         dotsDecorator: const DotsDecorator(
           color: ColorsSuricates.white,
           activeColor: ColorsSuricates.white,
           activeSize: Size.square(12),
-          size: Size.square(8)
+          size: Size.square(8),
         ),
       ),
     );

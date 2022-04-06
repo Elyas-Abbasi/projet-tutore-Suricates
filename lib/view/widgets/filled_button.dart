@@ -10,16 +10,16 @@ class FilledButton extends StatefulWidget {
   final Function() onPressed;
   final bool enabled;
 
-  const FilledButton(
-      {Key? key,
-      required this.text,
-      this.textAlign,
-      this.backgroundColor,
-      this.textColor,
-      this.fontWeight,
-      required this.onPressed,
-      required this.enabled})
-      : super(key: key);
+  const FilledButton({
+    Key? key,
+    required this.text,
+    this.textAlign,
+    this.backgroundColor,
+    this.textColor,
+    this.fontWeight,
+    required this.onPressed,
+    required this.enabled,
+  }) : super(key: key);
 
   @override
   _FilledButtonState createState() => _FilledButtonState();
@@ -32,9 +32,10 @@ class _FilledButtonState extends State<FilledButton> {
       child: Text(
         widget.text,
         style: TextStyle(
-            color: widget.textColor ?? ColorsSuricates.white,
-            fontSize: 18,
-            fontWeight: widget.fontWeight ?? FontWeight.bold),
+          color: widget.textColor ?? ColorsSuricates.white,
+          fontSize: 18,
+          fontWeight: widget.fontWeight ?? FontWeight.bold,
+        ),
         textAlign: widget.textAlign ?? TextAlign.left,
       ),
       style: ElevatedButton.styleFrom(

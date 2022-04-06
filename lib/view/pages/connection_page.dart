@@ -18,13 +18,13 @@ class ConnectionPage extends StatefulWidget {
   final Widget? route;
   final bool? passByMainPage;
 
-  ConnectionPage(
-      {Key? key,
-      required this.hasAccount,
-      required this.connectionPage,
-      this.route,
-      this.passByMainPage})
-      : super(key: key);
+  ConnectionPage({
+    Key? key,
+    required this.hasAccount,
+    required this.connectionPage,
+    this.route,
+    this.passByMainPage,
+  }) : super(key: key);
 
   @override
   _ConnectionContainerState createState() => _ConnectionContainerState();
@@ -126,48 +126,52 @@ class _ConnectionContainerState extends State<ConnectionPage> {
 
     await AuthService()
         .signInWithEmailAndPassword(_loginEmail!, _loginPassword!)
-        .then((value) async {
-      if (value is CurrentUser) {
-        AuthService().getUser();
+        .then(
+      (value) async {
+        if (value is CurrentUser) {
+          AuthService().getUser();
 
-        if (widget.connectionPage == true && widget.route != null) {
-          if (widget.passByMainPage == true) {
-            Navigator.pushNamed(context, "/");
+          if (widget.connectionPage == true && widget.route != null) {
+            if (widget.passByMainPage == true) {
+              Navigator.pushNamed(context, "/");
+            }
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => widget.route!),
+            );
           }
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => widget.route!));
+        } else {
+          switch (value.code) {
+            case "invalid-email":
+              textError = TextsSuricates.invalidEmail;
+              break;
+
+            case "user-disabled":
+              textError = TextsSuricates.userDisabled;
+              break;
+
+            case "user-not-found":
+              textError = TextsSuricates.userNotFound;
+              break;
+
+            case "wrong-password":
+              textError = TextsSuricates.wrongPassword;
+              break;
+
+            default:
+              textError = TextsSuricates.errorMessage;
+              break;
+          }
+
+          setState(() {
+            loading = false;
+            loginButtonEnabled = true;
+            fieldEnabled = true;
+            showLoginError = true;
+          });
         }
-      } else {
-        switch (value.code) {
-          case "invalid-email":
-            textError = TextsSuricates.invalidEmail;
-            break;
-
-          case "user-disabled":
-            textError = TextsSuricates.userDisabled;
-            break;
-
-          case "user-not-found":
-            textError = TextsSuricates.userNotFound;
-            break;
-
-          case "wrong-password":
-            textError = TextsSuricates.wrongPassword;
-            break;
-
-          default:
-            textError = TextsSuricates.errorMessage;
-            break;
-        }
-
-        setState(() {
-          loading = false;
-          loginButtonEnabled = true;
-          fieldEnabled = true;
-          showLoginError = true;
-        });
-      }
-    });
+      },
+    );
   }
 
   register() async {
@@ -181,226 +185,274 @@ class _ConnectionContainerState extends State<ConnectionPage> {
 
     await AuthService()
         .registerWithEmailAndPassword(_registerEmail!, _registerPassword!)
-        .then((value) async {
-      if (value is CurrentUser) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfilePage(isNewUser: true, currentUser: value)));
-      } else {
-        switch (value.code) {
-          case "invalid-email":
-            textError = TextsSuricates.invalidEmail;
-            break;
+        .then(
+      (value) async {
+        if (value is CurrentUser) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  EditProfilePage(isNewUser: true, currentUser: value),
+            ),
+          );
+        } else {
+          switch (value.code) {
+            case "invalid-email":
+              textError = TextsSuricates.invalidEmail;
+              break;
 
-          case "email-already-in-use":
-            textError = TextsSuricates.emailAlreadyInUse;
-            break;
+            case "email-already-in-use":
+              textError = TextsSuricates.emailAlreadyInUse;
+              break;
 
-          case "weak-password":
-            textError = TextsSuricates.weakPassword;
-            break;
+            case "weak-password":
+              textError = TextsSuricates.weakPassword;
+              break;
 
-          default:
-            textError = TextsSuricates.errorMessage;
-            break;
+            default:
+              textError = TextsSuricates.errorMessage;
+              break;
+          }
+
+          setState(() {
+            loading = false;
+            registerButtonEnabled = true;
+            fieldEnabled = true;
+            showRegisterError = true;
+          });
         }
-
-        setState(() {
-          loading = false;
-          registerButtonEnabled = true;
-          fieldEnabled = true;
-          showRegisterError = true;
-        });
-      }
-    });
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: widget.connectionPage == true
-            ? AppBarWidget(title: TextsSuricates.connection, icon: const Icon(Icons.arrow_back_ios_new), function: () {Navigator.pop(context);},)
-            : null,
-        body: widget.hasAccount == true
-            ? Stack(
-                children: [
-                  Container(
-                      margin: const EdgeInsets.only(
-                          top: 12, right: 12, bottom: 24, left: 12),
-                      child: Column(
-                        children: [
-                          Expanded(
-                              child: Center(
-                            child: Column(
-                              children: [
-                                const Text(
-                                  TextsSuricates.connection,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 24),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                      right: 24, left: 24),
-                                  child: Column(
-                                    children: [
-                                      SuricatesTextField(
-                                          textInputType:
-                                              TextInputType.emailAddress,
-                                          enable: fieldEnabled,
-                                          hint: TextsSuricates.email,
-                                          getText: (email) {
-                                            _loginEmail = email;
-                                            connectionReady();
-                                          }),
-                                      const SizedBox(
-                                        height: 4,
-                                      ),
-                                      SuricatesTextField(
-                                        textInputType:
-                                            TextInputType.visiblePassword,
-                                        enable: fieldEnabled,
-                                        hint: TextsSuricates.password,
-                                        getText: (password) {
-                                          _loginPassword = password;
-                                          connectionReady();
-                                        },
-                                      ),
-                                      Visibility(
-                                        child: InfoBar(
-                                            text: textError,
-                                            textColor: ColorsSuricates.redDark,
-                                            backgroundColor: ColorsSuricates.redLight),
-                                        visible: showLoginError,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      TextsSuricates.forgotPassword,
-                                      style: TextStyle(
-                                          color: ColorsSuricates.blue),
-                                    )),
-                                const SizedBox(
-                                  height: 12,
-                                ),
-                                FilledButton(
-                                  text: TextsSuricates.login,
-                                  onPressed: () async => login(),
-                                  enabled: loginButtonEnabled,
-                                  backgroundColor: ColorsSuricates.orange,
-                                ),
-                              ],
-                            ),
-                          )),
-                          Column(
+      resizeToAvoidBottomInset: false,
+      appBar: widget.connectionPage == true
+          ? AppBarWidget(
+              title: TextsSuricates.connection,
+              icon: const Icon(Icons.arrow_back_ios_new),
+              function: () {
+                Navigator.pop(context);
+              },
+            )
+          : null,
+      body: widget.hasAccount == true
+          ? Stack(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 12,
+                    right: 12,
+                    bottom: 24,
+                    left: 12,
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Center(
+                          child: Column(
                             children: [
-                              const Text(TextsSuricates.noAccount),
-                              const SizedBox(
-                                height: 12,
+                              const Text(
+                                TextsSuricates.connection,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                ),
                               ),
-                              FilledButton(
-                                  text: TextsSuricates.joinSuricates,
-                                  onPressed: () => setState(() => widget.hasAccount = false),
-                                  enabled: true)
-                            ],
-                          )
-                        ],
-                      )),
-                  Visibility(visible: loading, child: const LoadingWidget())
-                ],
-              )
-            : Stack(
-                children: [
-                  Container(
-                      margin: const EdgeInsets.only(
-                          top: 12, right: 12, bottom: 24, left: 12),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            const Text(
-                              TextsSuricates.signIn,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 24),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Container(
-                              margin:
-                                  const EdgeInsets.only(right: 24, left: 24),
-                              child: Column(
-                                children: [
-                                  SuricatesTextField(
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(
+                                  right: 24,
+                                  left: 24,
+                                ),
+                                child: Column(
+                                  children: [
+                                    SuricatesTextField(
                                       textInputType: TextInputType.emailAddress,
                                       enable: fieldEnabled,
                                       hint: TextsSuricates.email,
                                       getText: (email) {
-                                        _registerEmail = email;
-                                        registerReady();
-                                      }),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  SuricatesTextField(
+                                        _loginEmail = email;
+                                        connectionReady();
+                                      },
+                                    ),
+                                    const SizedBox(
+                                      height: 4,
+                                    ),
+                                    SuricatesTextField(
                                       textInputType:
                                           TextInputType.visiblePassword,
-                                      hint: TextsSuricates.password,
                                       enable: fieldEnabled,
+                                      hint: TextsSuricates.password,
                                       getText: (password) {
-                                        _registerPassword = password;
-                                        registerReady();
-                                      }),
-                                  const SizedBox(
-                                    height: 4,
-                                  ),
-                                  SuricatesTextField(
-                                      textInputType:
-                                          TextInputType.visiblePassword,
-                                      enable: fieldEnabled,
-                                      hint: TextsSuricates.password,
-                                      getText: (passwordConfirm) {
-                                        _registerPasswordConfirm =
-                                            passwordConfirm;
-                                        registerReady();
-                                      }),
-                                  Visibility(
-                                    child: InfoBar(
+                                        _loginPassword = password;
+                                        connectionReady();
+                                      },
+                                    ),
+                                    Visibility(
+                                      child: InfoBar(
                                         text: textError,
                                         textColor: ColorsSuricates.redDark,
-                                        backgroundColor: ColorsSuricates.redLight),
-                                    visible: showRegisterError,
-                                  ),
-                                ],
+                                        backgroundColor:
+                                            ColorsSuricates.redLight,
+                                      ),
+                                      visible: showLoginError,
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 56,
-                            ),
-                            FilledButton(
-                              text: TextsSuricates.joinSuricates,
-                              onPressed: () => register(),
-                              enabled: registerButtonEnabled,
-                              backgroundColor: ColorsSuricates.orange,
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            TransparentButton(
-                                text: TextsSuricates.cancelSignIn,
-                                onPressed: () => setState(() => widget.hasAccount = true),)
-                          ],
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  TextsSuricates.forgotPassword,
+                                  style: TextStyle(
+                                    color: ColorsSuricates.blue,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              FilledButton(
+                                text: TextsSuricates.login,
+                                onPressed: () async => login(),
+                                enabled: loginButtonEnabled,
+                                backgroundColor: ColorsSuricates.orange,
+                              ),
+                            ],
+                          ),
                         ),
-                      )),
-                  Visibility(visible: loading, child: const LoadingWidget())
-                ],
-              ));
+                      ),
+                      Column(
+                        children: [
+                          const Text(TextsSuricates.noAccount),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          FilledButton(
+                            text: TextsSuricates.joinSuricates,
+                            onPressed: () =>
+                                setState(() => widget.hasAccount = false),
+                            enabled: true,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Visibility(
+                  visible: loading,
+                  child: const LoadingWidget(),
+                )
+              ],
+            )
+          : Stack(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 12,
+                    right: 12,
+                    bottom: 24,
+                    left: 12,
+                  ),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        const Text(
+                          TextsSuricates.signIn,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(
+                            right: 24,
+                            left: 24,
+                          ),
+                          child: Column(
+                            children: [
+                              SuricatesTextField(
+                                textInputType: TextInputType.emailAddress,
+                                enable: fieldEnabled,
+                                hint: TextsSuricates.email,
+                                getText: (email) {
+                                  _registerEmail = email;
+                                  registerReady();
+                                },
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              SuricatesTextField(
+                                textInputType: TextInputType.visiblePassword,
+                                hint: TextsSuricates.password,
+                                enable: fieldEnabled,
+                                getText: (password) {
+                                  _registerPassword = password;
+                                  registerReady();
+                                },
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              SuricatesTextField(
+                                textInputType: TextInputType.visiblePassword,
+                                enable: fieldEnabled,
+                                hint: TextsSuricates.password,
+                                getText: (passwordConfirm) {
+                                  _registerPasswordConfirm = passwordConfirm;
+                                  registerReady();
+                                },
+                              ),
+                              Visibility(
+                                child: InfoBar(
+                                  text: textError,
+                                  textColor: ColorsSuricates.redDark,
+                                  backgroundColor: ColorsSuricates.redLight,
+                                ),
+                                visible: showRegisterError,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 56,
+                        ),
+                        FilledButton(
+                          text: TextsSuricates.joinSuricates,
+                          onPressed: () => register(),
+                          enabled: registerButtonEnabled,
+                          backgroundColor: ColorsSuricates.orange,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        TransparentButton(
+                          text: TextsSuricates.cancelSignIn,
+                          onPressed: () =>
+                              setState(() => widget.hasAccount = true),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: loading,
+                  child: const LoadingWidget(),
+                )
+              ],
+            ),
+    );
   }
 }

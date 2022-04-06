@@ -1,1 +1,5 @@
-enum ProposalStatus { waiting, accepted, refused }
+enum ProposalStatus {
+  waiting,
+  accepted,
+  refused,
+}

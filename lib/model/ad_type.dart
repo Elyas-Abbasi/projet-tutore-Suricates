@@ -1,5 +1,4 @@
-enum AdType
-{
+enum AdType {
   search,
-  exchange
+  exchange,
 }
