@@ -9,7 +9,11 @@ class ChatService {
   final GlobalUser peerUser;
   final Ad ad;
 
-  ChatService(this.currentUser, this.peerUser, this.ad);
+  ChatService(
+    this.currentUser,
+    this.peerUser,
+    this.ad,
+  );
 
   String getChatGroupId() {
     if (currentUser.uid.hashCode <= peerUser.uid.hashCode) {
@@ -27,19 +31,22 @@ class ChatService {
   }
 
   onRead() {
-    var conversationCurrentDoc = FirebaseFirestore.instance.collection('conversations').doc("${ad.id}-${currentUser.uid}");
+    var conversationCurrentDoc = FirebaseFirestore.instance
+        .collection('conversations')
+        .doc("${ad.id}-${currentUser.uid}");
 
-    conversationCurrentDoc.update({
-      'receiverRead': true
-    });
+    conversationCurrentDoc.update({'receiverRead': true});
   }
 
   void sendMessage(bool isFirstMessage, Message message) {
     var documentReference =
         FirebaseFirestore.instance.collection('messages').doc(getChatGroupId());
-    var conversationCurrentDoc = FirebaseFirestore.instance.collection('conversations').doc("${ad.id}-${currentUser.uid}");
-    var conversationPeerDoc = FirebaseFirestore.instance.collection('conversations').doc("${ad.id}-${peerUser.uid}");
-
+    var conversationCurrentDoc = FirebaseFirestore.instance
+        .collection('conversations')
+        .doc("${ad.id}-${currentUser.uid}");
+    var conversationPeerDoc = FirebaseFirestore.instance
+        .collection('conversations')
+        .doc("${ad.id}-${peerUser.uid}");
 
     FirebaseFirestore.instance.runTransaction((transaction) async {
       if (isFirstMessage == true) {
@@ -73,15 +80,14 @@ class ChatService {
           'adTitle': ad.title,
           'adId': ad.id
         });
-
       } else {
         // upload new message in conv
         transaction.update(documentReference, {
           'messages': FieldValue.arrayUnion([message.toHashMap()]),
         });
 
-      // update currentUID conversation if first message
-      transaction.update(conversationCurrentDoc, {
+        // update currentUID conversation if first message
+        transaction.update(conversationCurrentDoc, {
           'lastMessage': message.content,
           'currentUID': currentUser.uid,
           'peerUID': peerUser.uid,
@@ -105,7 +111,6 @@ class ChatService {
           'adTitle': ad.title,
           'adId': ad.id
         });
-
       }
     });
   }

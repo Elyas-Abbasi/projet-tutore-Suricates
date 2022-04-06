@@ -7,20 +7,26 @@ class Message {
   final String content;
   final MessageType type;
 
-  Message(this.senderUID, this.receiverUID, this.time, this.content, this.type);
+  Message(
+    this.senderUID,
+    this.receiverUID,
+    this.time,
+    this.content,
+    this.type,
+  );
 
   Map<String, dynamic> toHashMap() {
     return {
-          'content': content,
-          'senderUID': senderUID,
-          'receiverUID': receiverUID,
-          'type': type == MessageType.message ? "message" : "proposal",
-          'time': time
+      'content': content,
+      'senderUID': senderUID,
+      'receiverUID': receiverUID,
+      'type': type == MessageType.message ? "message" : "proposal",
+      'time': time
     };
   }
 }
 
 enum MessageType {
   message,
-  proposal
+  proposal,
 }

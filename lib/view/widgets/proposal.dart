@@ -10,13 +10,13 @@ class Proposal extends StatefulWidget {
   final String responderImagePath;
   final ProposalStatus status;
 
-  const Proposal(
-      {Key? key,
-      required this.propositionByCurrentUser,
-      required this.status,
-      required this.proposerImagePath,
-      required this.responderImagePath})
-      : super(key: key);
+  const Proposal({
+    Key? key,
+    required this.propositionByCurrentUser,
+    required this.status,
+    required this.proposerImagePath,
+    required this.responderImagePath,
+  }) : super(key: key);
 
   @override
   _ProposalState createState() => _ProposalState();
@@ -62,32 +62,38 @@ class _ProposalState extends State<Proposal> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.transparent,
-        child: Container(
-          decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: const BorderRadius.all(Radius.circular(24))),
-          child: Column(
-            children: [
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 24, horizontal: 12),
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w600),
+      color: Colors.transparent,
+      child: Container(
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: const BorderRadius.all(Radius.circular(24)),
+        ),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(
+                vertical: 24,
+                horizontal: 12,
+              ),
+              child: Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontFamily: "Poppins",
+                  fontWeight: FontWeight.w600,
                 ),
               ),
-              ProposalBody(
-                  propositionByCurrentUser: widget.propositionByCurrentUser,
-                  proposerImagePath: widget.proposerImagePath,
-                  responderImagePath: widget.responderImagePath,
-                  status: widget.status)
-            ],
-          ),
-        ));
+            ),
+            ProposalBody(
+              propositionByCurrentUser: widget.propositionByCurrentUser,
+              proposerImagePath: widget.proposerImagePath,
+              responderImagePath: widget.responderImagePath,
+              status: widget.status,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -97,13 +103,13 @@ class ProposalBody extends StatefulWidget {
   final String responderImagePath;
   final ProposalStatus status;
 
-  const ProposalBody(
-      {Key? key,
-      required this.propositionByCurrentUser,
-      required this.proposerImagePath,
-      required this.responderImagePath,
-      required this.status})
-      : super(key: key);
+  const ProposalBody({
+    Key? key,
+    required this.propositionByCurrentUser,
+    required this.proposerImagePath,
+    required this.responderImagePath,
+    required this.status,
+  }) : super(key: key);
 
   @override
   _ProposalBodyState createState() => _ProposalBodyState();
@@ -138,59 +144,63 @@ class _ProposalBodyState extends State<ProposalBody> {
   Widget build(BuildContext context) {
     switch (widget.status) {
       case ProposalStatus.waiting:
-        return Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(),
-              const Spacer(),
-              ProposalImage(
-                  imagePath: widget.proposerImagePath,
-                  text: leftText,
-                  textColor: textColor),
-              const Spacer(),
-              const Spacer(),
-              const Spacer(),
-              ProposalImage(
-                  imagePath: widget.responderImagePath,
-                  text: rightText,
-                  textColor: textColor),
-              const Spacer(),
-              const Spacer(),
-            ],
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 12),
-            child: Row(
+        return Column(
+          children: [
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Spacer(),
-                FilledButton(
-                  text: widget.propositionByCurrentUser
-                      ? TextsSuricates.waiting
-                      : TextsSuricates.refuse,
-                  onPressed: () {},
-                  enabled: true,
-                  backgroundColor: Colors.transparent,
+                const Spacer(),
+                ProposalImage(
+                  imagePath: widget.proposerImagePath,
+                  text: leftText,
                   textColor: textColor,
-                  fontWeight: FontWeight.w600,
                 ),
                 const Spacer(),
-                FilledButton(
-                  text: widget.propositionByCurrentUser
-                      ? TextsSuricates.cancel
-                      : TextsSuricates.accept,
-                  onPressed: () {},
-                  enabled: true,
-                  backgroundColor: buttonBackgroundColor,
+                const Spacer(),
+                const Spacer(),
+                ProposalImage(
+                  imagePath: widget.responderImagePath,
+                  text: rightText,
                   textColor: textColor,
-                  fontWeight: FontWeight.w600,
                 ),
+                const Spacer(),
                 const Spacer(),
               ],
             ),
-          ),
-        ]);
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  FilledButton(
+                    text: widget.propositionByCurrentUser
+                        ? TextsSuricates.waiting
+                        : TextsSuricates.refuse,
+                    onPressed: () {},
+                    enabled: true,
+                    backgroundColor: Colors.transparent,
+                    textColor: textColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  const Spacer(),
+                  FilledButton(
+                    text: widget.propositionByCurrentUser
+                        ? TextsSuricates.cancel
+                        : TextsSuricates.accept,
+                    onPressed: () {},
+                    enabled: true,
+                    backgroundColor: buttonBackgroundColor,
+                    textColor: textColor,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  const Spacer(),
+                ],
+              ),
+            ),
+          ],
+        );
       case ProposalStatus.accepted:
         return Container(
           padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
@@ -222,12 +232,12 @@ class ProposalImage extends StatelessWidget {
   final String text;
   final Color textColor;
 
-  const ProposalImage(
-      {Key? key,
-      required this.imagePath,
-      required this.text,
-      required this.textColor})
-      : super(key: key);
+  const ProposalImage({
+    Key? key,
+    required this.imagePath,
+    required this.text,
+    required this.textColor,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -235,8 +245,12 @@ class ProposalImage extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: ColorsSuricates.white, width: 4),
-              borderRadius: const BorderRadius.all(Radius.circular(12))),
+            border: Border.all(
+              color: ColorsSuricates.white,
+              width: 4,
+            ),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
+          ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: Image.network(

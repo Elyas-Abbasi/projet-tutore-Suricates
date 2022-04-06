@@ -17,7 +17,10 @@ class AppBarWidget extends PreferredSize {
     this.backgroundColor,
     this.function,
   }) : super(
-            key: key, preferredSize: const Size.fromHeight(0), child: AppBar());
+          key: key,
+          preferredSize: const Size.fromHeight(0),
+          child: AppBar(),
+        );
 
   @override
   Size get preferredSize => const Size.fromHeight(130);
@@ -40,32 +43,46 @@ class AppBarWidget extends PreferredSize {
               elevation: 0,
               centerTitle: true,
               leading: Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: IconButton(
-                    padding: const EdgeInsets.only(bottom: 0, right: 0),
-                    icon: icon ?? Container(),
-                    onPressed: () => function!(),
-                  )),
+                padding: const EdgeInsets.only(bottom: 16),
+                child: IconButton(
+                  padding: const EdgeInsets.only(
+                    bottom: 0,
+                    right: 0,
+                  ),
+                  icon: icon ?? Container(),
+                  onPressed: () => function!(),
+                ),
+              ),
               title: Container(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: Text(
-                    title,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.bold),
-                  )),
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               backgroundColor: Colors.transparent,
               actions: <Widget>[
                 burgerMenu != null
                     ? Container(
-                        padding: const EdgeInsets.only(bottom: 16, right: 4),
+                        padding: const EdgeInsets.only(
+                          bottom: 16,
+                          right: 4,
+                        ),
                         child: IconButton(
-                          padding: const EdgeInsets.only(bottom: 0, right: 0),
+                          padding: const EdgeInsets.only(
+                            bottom: 0,
+                            right: 0,
+                          ),
                           icon: const Icon(
                             Icons.menu,
                             color: ColorsSuricates.white,
                           ),
                           onPressed: () => Scaffold.of(context).openEndDrawer(),
-                        ))
+                        ),
+                      )
                     : Container()
               ],
             ),
@@ -80,49 +97,61 @@ class AppBarWidget extends PreferredSize {
         height: preferredSize.height,
         child: CustomPaint(
           painter: HeaderPaint(),
-          child: Stack(children: [
-            Positioned(
-              bottom: 0,
-              left: 10,
-              child: Image.asset(
-                "images/suricate.png",
-                height: 84,
-                color: backgroundColor ?? ColorsSuricates.white,
+          child: Stack(
+            children: [
+              Positioned(
+                bottom: 0,
+                left: 10,
+                child: Image.asset(
+                  "images/suricate.png",
+                  height: 84,
+                  color: backgroundColor ?? ColorsSuricates.white,
+                ),
               ),
-            ),
-            Padding(
-              padding: Platform.isAndroid
-                  ? const EdgeInsets.only(top: 15.0)
-                  : EdgeInsets.zero,
-              child: AppBar(
-                elevation: 0,
-                centerTitle: true,
-                title: Container(
+              Padding(
+                padding: Platform.isAndroid
+                    ? const EdgeInsets.only(top: 15.0)
+                    : EdgeInsets.zero,
+                child: AppBar(
+                  elevation: 0,
+                  centerTitle: true,
+                  title: Container(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Text(
                       title,
                       style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold),
-                    )),
-                backgroundColor: Colors.transparent,
-                actions: <Widget>[
-                  burgerMenu != null
-                      ? Container(
-                          padding: const EdgeInsets.only(bottom: 16, right: 4),
-                          child: IconButton(
-                            padding: const EdgeInsets.only(bottom: 0, right: 0),
-                            icon: const Icon(
-                              Icons.menu,
-                              color: ColorsSuricates.white,
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  backgroundColor: Colors.transparent,
+                  actions: <Widget>[
+                    burgerMenu != null
+                        ? Container(
+                            padding: const EdgeInsets.only(
+                              bottom: 16,
+                              right: 4,
                             ),
-                            onPressed: () =>
-                                Scaffold.of(context).openEndDrawer(),
-                          ))
-                      : Container()
-                ],
+                            child: IconButton(
+                              padding: const EdgeInsets.only(
+                                bottom: 0,
+                                right: 0,
+                              ),
+                              icon: const Icon(
+                                Icons.menu,
+                                color: ColorsSuricates.white,
+                              ),
+                              onPressed: () =>
+                                  Scaffold.of(context).openEndDrawer(),
+                            ),
+                          )
+                        : Container()
+                  ],
+                ),
               ),
-            ),
-          ]),
+            ],
+          ),
         ),
       );
     }
@@ -134,11 +163,11 @@ class HeaderPaint extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()..color = ColorsSuricates.blue;
     Path path = Path()
-    ..moveTo(0, 0)
-    ..lineTo(size.width, 0)
-    ..lineTo(size.width, size.height - 20)
-    ..lineTo(0, size.height)
-    ..close();
+      ..moveTo(0, 0)
+      ..lineTo(size.width, 0)
+      ..lineTo(size.width, size.height - 20)
+      ..lineTo(0, size.height)
+      ..close();
     canvas.drawPath(path, paint);
   }
 

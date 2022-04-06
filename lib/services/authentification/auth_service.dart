@@ -24,16 +24,25 @@ class AuthService {
     _auth.authStateChanges().listen((User? user) {
       if (user == null) {
         globals.currentUser = null;
-        runApp(const MyApp(currentUser: null));
+        runApp(
+          const MyApp(currentUser: null),
+        );
       } else {
         CurrentUser? currentUser = CurrentUser(user.uid, "", user.email!);
         saveToken(currentUser);
         globals.currentUser = currentUser;
         usersInfo.doc(currentUser.uid).get().then((DocumentSnapshot document) {
           currentUser.pseudo = document["pseudo"];
-          runApp(MyApp(currentUser: currentUser));
+          runApp(
+            MyApp(currentUser: currentUser),
+          );
         }).catchError((error) {
-          runApp(MyApp(currentUser: currentUser, hasFinishRegister: false));
+          runApp(
+            MyApp(
+              currentUser: currentUser,
+              hasFinishRegister: false,
+            ),
+          );
         });
       }
     });

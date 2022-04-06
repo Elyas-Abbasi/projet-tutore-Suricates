@@ -9,15 +9,15 @@ class SuricatesTextField extends StatefulWidget {
   final int? maxLines;
   final bool enable;
 
-  const SuricatesTextField(
-      {Key? key,
-      this.textInputType = TextInputType.text,
-      required this.hint,
-      required this.getText,
-      this.enable = true,
-      this.controller,
-      this.maxLines})
-      : super(key: key);
+  const SuricatesTextField({
+    Key? key,
+    this.textInputType = TextInputType.text,
+    required this.hint,
+    required this.getText,
+    this.enable = true,
+    this.controller,
+    this.maxLines,
+  }) : super(key: key);
 
   @override
   _SuricatesTextFieldState createState() => _SuricatesTextFieldState();
@@ -33,10 +33,14 @@ class _SuricatesTextFieldState extends State<SuricatesTextField> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.all(4),
-      padding: const EdgeInsets.only(right: 12, left: 12),
+      padding: const EdgeInsets.only(
+        right: 12,
+        left: 12,
+      ),
       decoration: const BoxDecoration(
-          color: ColorsSuricates.backgroundSecondary,
-          borderRadius: BorderRadius.all(Radius.circular(16))),
+        color: ColorsSuricates.backgroundSecondary,
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+      ),
       child: TextField(
         minLines: 1,
         controller: widget.controller,
@@ -52,8 +56,10 @@ class _SuricatesTextFieldState extends State<SuricatesTextField> {
                 : TextCapitalization.sentences,
         cursorColor: ColorsSuricates.orange,
         maxLines: widget.maxLines ?? 1,
-        decoration:
-            InputDecoration(hintText: widget.hint, border: InputBorder.none),
+        decoration: InputDecoration(
+          hintText: widget.hint,
+          border: InputBorder.none,
+        ),
         onChanged: (text) => updateText(text),
       ),
     );

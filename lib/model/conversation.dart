@@ -9,17 +9,24 @@ class Conversation {
   final bool read;
   final Timestamp time;
 
-  Conversation(this.peerUID, this.peerPseudo, this.adTitle, this.adUID, this.lastMessage, this.time, this.read);
+  Conversation(
+    this.peerUID,
+    this.peerPseudo,
+    this.adTitle,
+    this.adUID,
+    this.lastMessage,
+    this.time,
+    this.read,
+  );
 
   Map<String, dynamic> toHashMap() {
     return {
-          'peerPseudo': peerPseudo,
-          'peerUID': peerUID,
-          'lastMessage': lastMessage,
-          'adTitle': adTitle,
-          'adUID': adUID,
-          'time': time
+      'peerPseudo': peerPseudo,
+      'peerUID': peerUID,
+      'lastMessage': lastMessage,
+      'adTitle': adTitle,
+      'adUID': adUID,
+      'time': time
     };
   }
-
 }

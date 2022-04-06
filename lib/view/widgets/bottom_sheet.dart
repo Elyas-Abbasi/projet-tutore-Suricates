@@ -9,9 +9,12 @@ class BottomSheetDialog extends StatefulWidget {
   final Function()? onBack;
   final Function(int selectedItemPosition)? onContinue;
 
-  const BottomSheetDialog(
-      {Key? key, this.dismissOnContinue, this.onBack, this.onContinue})
-      : super(key: key);
+  const BottomSheetDialog({
+    Key? key,
+    this.dismissOnContinue,
+    this.onBack,
+    this.onContinue,
+  }) : super(key: key);
 
   @override
   _BottomSheetDialogState createState() => _BottomSheetDialogState();
@@ -30,68 +33,76 @@ class _BottomSheetDialogState extends State<BottomSheetDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisSize: MainAxisSize.min, children: [
-      Material(
-        color: ColorsSuricates.white,
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              const Text(
-                TextsSuricates.proposeDeal,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 12),
-                child: RadioButton(
-                  TextsSuricates.exchangeExisting,
-                  checked: (selectedItem == 0),
-                  function: () => changeSelectedItem(0),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 12),
-                child: RadioButton(
-                  TextsSuricates.exchangePhoto,
-                  checked: (selectedItem == 1),
-                  function: () => changeSelectedItem(1),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  FilledButton(
-                    text: TextsSuricates.back,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Material(
+          color: ColorsSuricates.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                const Text(
+                  TextsSuricates.proposeDeal,
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      widget.onBack;
-                    },
-                    enabled: true,
-                    backgroundColor: Colors.transparent,
-                    textColor: ColorsSuricates.orange,
+                    fontSize: 22,
                   ),
-                  FilledButton(
-                    text: TextsSuricates.textContinue,
-                    fontWeight: FontWeight.w600,
-                    onPressed: () {
-                      if (widget.dismissOnContinue ?? true) {
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 12),
+                  child: RadioButton(
+                    TextsSuricates.exchangeExisting,
+                    checked: (selectedItem == 0),
+                    function: () => changeSelectedItem(0),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  child: RadioButton(
+                    TextsSuricates.exchangePhoto,
+                    checked: (selectedItem == 1),
+                    function: () => changeSelectedItem(1),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FilledButton(
+                      text: TextsSuricates.back,
+                      fontWeight: FontWeight.w600,
+                      onPressed: () {
                         Navigator.of(context).pop();
-                      }
-                      widget.onContinue!(selectedItem);
-                    },
-                    enabled: selectedItem != -1,
-                    backgroundColor: ColorsSuricates.orange,
-                  ),
-                ],
-              )
-            ],
+                        widget.onBack;
+                      },
+                      enabled: true,
+                      backgroundColor: Colors.transparent,
+                      textColor: ColorsSuricates.orange,
+                    ),
+                    FilledButton(
+                      text: TextsSuricates.textContinue,
+                      fontWeight: FontWeight.w600,
+                      onPressed: () {
+                        if (widget.dismissOnContinue ?? true) {
+                          Navigator.of(context).pop();
+                        }
+                        widget.onContinue!(selectedItem);
+                      },
+                      enabled: selectedItem != -1,
+                      backgroundColor: ColorsSuricates.orange,
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 }
 
@@ -100,8 +111,12 @@ class RadioButton extends StatefulWidget {
   final bool? checked;
   final Function()? function;
 
-  const RadioButton(this.text, {Key? key, this.checked, this.function})
-      : super(key: key);
+  const RadioButton(
+    this.text, {
+    Key? key,
+    this.checked,
+    this.function,
+  }) : super(key: key);
 
   @override
   _RadioButtonState createState() => _RadioButtonState();

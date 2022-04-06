@@ -13,19 +13,25 @@ class Ad {
   late String userPseudo;
   late DateTime date;
 
-  Ad(this.id, this.title, this.description, this.city, this.type);
+  Ad(
+    this.id,
+    this.title,
+    this.description,
+    this.city,
+    this.type,
+  );
 
-  Ad.fromSnapShot(DocumentSnapshot document){
-      id = document.id;
-      title = document['title'];
-      description = document['subtitle'];
-      city = document['city'];
-      url = document['url'];
-      userID = document['userID'];
-      userPseudo = document['userPseudo'];
-      type = EnumToString.fromString(AdType.values, document['type']);
+  Ad.fromSnapShot(DocumentSnapshot document) {
+    id = document.id;
+    title = document['title'];
+    description = document['subtitle'];
+    city = document['city'];
+    url = document['url'];
+    userID = document['userID'];
+    userPseudo = document['userPseudo'];
+    type = EnumToString.fromString(
+      AdType.values,
+      document['type'],
+    );
   }
-
 }
-
-

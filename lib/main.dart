@@ -9,8 +9,7 @@ import 'view/pages/main_page.dart';
 import 'model/current_user.dart';
 import 'colors.dart';
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-}
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,8 +22,11 @@ class MyApp extends StatelessWidget {
   final CurrentUser? currentUser;
   final bool? hasFinishRegister;
 
-  const MyApp({Key? key, this.currentUser, this.hasFinishRegister})
-      : super(key: key);
+  const MyApp({
+    Key? key,
+    this.currentUser,
+    this.hasFinishRegister,
+  }) : super(key: key);
 
   get initScreen => null;
 

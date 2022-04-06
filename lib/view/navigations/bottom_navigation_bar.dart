@@ -7,16 +7,21 @@ class NavBar extends StatefulWidget {
   final Function(int) onChanged;
   final int select;
 
-  const NavBar({Key? key, required this.onChanged, required this.select})
-      : super(key: key);
+  const NavBar({
+    Key? key,
+    required this.onChanged,
+    required this.select,
+  }) : super(key: key);
 
   @override
   State<NavBar> createState() => NavBarState();
 }
 
 class NavBarState extends State<NavBar> {
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+  );
 
   void _onItemTapped(int index) => widget.onChanged(index);
 
@@ -32,9 +37,15 @@ class NavBarState extends State<NavBar> {
       backgroundColor: ColorsSuricates.blue,
       items: <BottomNavigationBarItem>[
         const BottomNavigationBarItem(
-          icon: Icon(Icons.search, size: 32,),
+          icon: Icon(
+            Icons.search,
+            size: 32,
+          ),
           label: TextsSuricates.deals,
-          activeIcon: Icon(Icons.search, size: 32,),
+          activeIcon: Icon(
+            Icons.search,
+            size: 32,
+          ),
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
